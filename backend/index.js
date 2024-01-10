@@ -38,18 +38,7 @@ app.listen(PORT, () => {
 });
 
 
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', 'https://monumental-sherbet-d68a44.netlify.app');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// });
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'https://monumental-sherbet-d68a44.netlify.app');
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Include OPTIONS if you're handling preflight requests
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
-// });
+
 
 //   app.use(cors({ origin: 'https://monumental-sherbet-d68a44.netlify.app/' }));
 // const allowedOrigins = ['https://monumental-sherbet-d68a44.netlify.app'];
