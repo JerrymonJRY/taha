@@ -76,7 +76,7 @@ import ViewExpenseInvoice from './Components/ExpenseInvoice/viewExpenseInvoice';
 import AddExpenseInvoice from './Components/ExpenseInvoice/addExpenseInvoice';
 import EditExpenseInvoice from './Components/ExpenseInvoice/editExpenseInvoice';
 import ImportFoodmenu from './Components/Foodmenu/importfoodmenu';
-
+import ImportFoodCategory from './Components/Foodcategory/importFoodcategory';
 function App() {
 
   //const navigate = useNavigate();
@@ -155,7 +155,8 @@ function App() {
               <Route path='/addfoodcategory' element={<RequireToken><AddFoodCategory /></RequireToken>}></Route>
               <Route path='/editfoodcategory/:id' element={<RequireToken><EditFoodCategory /></RequireToken>}></Route>
               <Route path='/viewfoodcategory' element={<RequireToken><ViewFoodCategory /></RequireToken>}></Route>
-             
+              <Route path='/importfoodcategory' element={<RequireToken><ImportFoodCategory /></RequireToken>}></Route>
+              
               <Route path='/addfoodmenu' element={<RequireToken><AddFoodMenu /></RequireToken>}></Route>
               <Route path='/viewfoodmenu' element={<RequireToken><ViewFoodMenu /></RequireToken>}></Route>
               <Route path='/editfoodmenu/:id' element={<RequireToken><EditFoodMenu /></RequireToken>}></Route>
