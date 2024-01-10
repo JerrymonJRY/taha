@@ -1,0 +1,281 @@
+foodmenuname,foodcategoryId,foodingredientId,salesprice,vatId,description,vegitem,beverage,bar,photo
+KARAK TEA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,Fa,yes,yes,yes,imgae-1702717596398. 1.jpg
+BLACK TEA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,ggg,yes,yes,yes,imgae-1702717667601. login.png
+GREEN TEA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1b7b3999d1add24f83a,ggg,no,no,no,imgae-1702717698416. print.png
+FRESH MILK TEA,655ef7971532830df6b987c8,"[""[\""655ef5c61532830df6b987ae\""]""]",2,655ef1cfb3999d1add24f83e,undefined,no,no,no,imgae-1704185465013. Rectangle 35.png
+LEMON TEA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2,655ef1b7b3999d1add24f83a,ggg,no,no,no,imgae-1704185580956. 2.jpg
+GINGER TEA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2,655ef1b7b3999d1add24f83a,ggg,no,no,no,imgae-1704185630795. 806701b3-67a1-4f07-ad90-848612a9624f.jpg
+FRESH MILK,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2,655ef1cfb3999d1add24f83e,ggg,no,no,no,imgae-1704185675042. 89263826-c061-4bbe-9c6c-8e8c5273fcb8.jpg
+KARAK ZAFRAN,655ef7971532830df6b987c8,"[""[\""655ef6041532830df6b987b6\""]""]",2,655ef1cfb3999d1add24f83e,vbb,no,no,no,imgae-1704185719234. Home page banner 1 (1).png
+BLACK COFFEE,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2,655ef1cfb3999d1add24f83e,vvv,no,no,no,imgae-1704185771354. Rectangle 38.png
+CHUCK COFFEE,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2,655ef1cfb3999d1add24f83e,CHICKEN PEPPER MASALA,no,no,no,imgae-1704185830329. Rectangle 48.png
+MILK COFFEE,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,DAL PALAK,yes,no,no,imgae-1704185875694. Home page banner 1 (1).png
+BOOST,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,EGG ROAST (2 EGG),yes,no,no,imgae-1704185949131. 1addebb3-4d05-476c-a15b-463ce4c72ba0.png
+HORLICKS,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,WEAT POROTA,yes,no,no,imgae-1704186001836. banner.jpg
+BADAM MILK,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",4,655ef1cfb3999d1add24f83e,CHEESE HONEY POROTTA SANDWICH,no,no,no,imgae-1704186052109. 1addebb3-4d05-476c-a15b-463ce4c72ba0.png
+HOT CHOCOLATE,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",4,655ef1cfb3999d1add24f83e,PINEAPPLE,no,no,no,imgae-1704186121549. 1addebb3-4d05-476c-a15b-463ce4c72ba0.png
+SNACK1,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,VADASET,no,no,no,imgae-1704186164587. Rectangle 48.png
+SNACK2,655ef7971532830df6b987c8,"[""[\""655ef6041532830df6b987b6\""]""]",1.5,655ef1cfb3999d1add24f83e,Black tea,no,no,no,imgae-1704202379947. black_friday_banner_02.jpg
+SNACK3,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SNACK4,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",2.5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SNACK5,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SNACK6,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",4,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SNACK7,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PAZHAM PORI BEEF,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VADASET,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+UPMA SET,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+IDLY SET,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+IDLY VADA SET,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+IDIYAPPAM + VEG KURMA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PUTTU + KADALA CURRY,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+WHEAT PUTTU + KADALA CURRY,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PURI + BHAJI,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+APPAM + EGG ROAST,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PURI + EGG ROAST,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PLAIN DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",4,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SET DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GHEE DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ONION DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+RAVA DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+TOMATO DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MASALA DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BUTTER DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+RAVA ONION DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BULLSEYE DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+UTHAPPAM SET,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+RAVA MASALA DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GHEE MASALA DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHEESE DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BUTTER MASALA DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DOUBLE EGG DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DOUBLE CHEESE DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MYSORE MASALA DOSA,655ef7971532830df6b987c8,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON MINT MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ORANGE MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MANGOMEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PINEAPPLE MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+WATERMELON MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKOO MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PAPAYA MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GUAVA MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GRAPE MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+AVOCADO MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STRAWBERRY MEDIUM,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON MINT LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ORANGE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MANGO LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PINEAPPLE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+WATERMELON LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKOO LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PAPAYA LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GUAVA LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GRAPE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+AVOCADO LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STRAWBERRY LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STRAWBERRY SHAKE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CARAMEL LATTE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHOCOLATE SHAKE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+OREO BISCUIT SHAKE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PEANUT SHAKE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LOTUS BISCUIT SHAKE LARGE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+AVIL MILK,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+TAHA COCKTAIL,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STRAWBWRRY BANANA SMOOTHIE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MANGO SMOOTHIE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PINEAPPLE BANANA SMOOTHIE,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STRAWBERRY LASSI,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MANGO LASSI,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHOCOLATE LASSI,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SWEET/SALT LASSI,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STRAWBERRY MOJITO,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PASSION FRUIT MOJITO,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PEACH MOJITO,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+TROPICAL BLUE MOJITO,6593cc3645e19f95fd10e3af,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHEESE HONEY POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHEESE POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+OMAN CHIPS POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+OMLETTE POROTTA SANDWICH,6593cc5c45e19f95fd10e3b8,"[""[\""655ef6721532830df6b987bb\""]""]",4,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FRENCH FRIES POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",4,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN CHILLY POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+POPCORN POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+NUGGESTS POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DYNAMITE SHRIMP POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FRANSCISCO POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ZINGER POROTTA SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG SAMOON SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG SAMOON SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN SAMOON SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF SAMOON SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ZINGER MATHAFI SAMOON SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DYNAMITE SHRIMP SAMOON SANDWICH,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG BURGER,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN BURGER,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG BURGER,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF BURGER,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ZINGER BURGER,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DYNAMITE SHRIMP BURGER,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FRENCH FRIES,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FRIES WITH SAUCE,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN NUGGETS,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DYNAMITE CHICKEN,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DYNAMATE SHRIMP,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",18,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FRIES WITH BEEF,6593cc5c45e19f95fd10e3b5,"[""[\""655ef6721532830df6b987bb\""]""]",18,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+POROTA,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+WEAT POROTA,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1.5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+COIN POROTA (2 PCS),6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHAPATI,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+APPAM,6593cca26f5d76b3f95ce9f8,"[""[{\""label\"":\""Milk\"",\""value\"":\""655ef5c61532830df6b987ae\""}]""]",1,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+IDIYAPPAM,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DOSA,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PUTTU,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+WEAT PUTTU,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",1.5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+RUMALI ROTI,6593cca26f5d76b3f95ce9f8,"[""[\""655ef6721532830df6b987bb\""]""]",3,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG CURRY,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG ROAST (2 EGG),6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MIX VEG KURMA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FISH CURRY,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FISH CURRY MATHI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FISH FRY,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FISH FRY MATHI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",5,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN CURRY,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN ROAST,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN KURUMA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN CHUKKA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN 65 FRY (KABAB),6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN DRY FRY (BONELESS),6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF CURRY,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF ROAST,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF FRY,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+KAPPA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+KAPPA CHICKEN,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+KAPPA BEEF,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+KAPPA BIRIYANI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG KOTHU POROTA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN KOTHU PORATA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF KOTHU PORATA,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MOTTA SET,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BARI SET,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN BIRIYANI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN KUSHKA BABAB BIRIYANI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",17,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUTTON BIRIYANI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",19,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN 65 BIRIYANI,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",20,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+KUSHKA (BIRIYANI RICE),6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+STEAM RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",6,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GHEE RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+TOMATO RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CURD RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+JEERA RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GARLIC RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG PULAV,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GOBI RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER RICE,6593ccc06f5d76b3f95ce9fc,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DAL FRY,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DAL PALAK,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DAL TADKA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DAL KOLHAPURI,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+ALOO PALAK,6593ccf16f5d76b3f95cea00,"[""[{\""label\"":\""Milk\"",\""value\"":\""655ef5c61532830df6b987ae\""},{\""label\"":\""Sugar\"",\""value\"":\""655ef6041532830df6b987b6\""},{\""label\"":\""Bun\"",\""value\"":\""655ef6721532830df6b987bb\""},{\""label\"":\""Tea Powder\"",\""value\"":\""655ef5eb1532830df6b987b2\""}]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704713954240. Rectangle 48.png
+GOPI MASALA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG KOLHAPURI,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG HYDERABADI,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM KADAI,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM MASALA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER MATAR MASALA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER BUTTER MASALA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PALAK PANEER,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BABYCORN MASALA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BABYCORN PEPPER MASALA,6593ccf16f5d76b3f95cea00,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BUTTER CHICKEN,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN PEPPER MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN HYDERABADI,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN RED MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN KOLHAPURI,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN KADAI,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN MASHROOM MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF KADAI,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUTTON HYDERABADI,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUTTON KADAI,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUTTON MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FISH MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PRAWNS MASALA,6593cd256f5d76b3f95cea04,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG SWEET CORN SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON CORIANDER SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",7,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG CLEAR SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG MANCHOW SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG HOT N SOUR SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",8,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN CLEAR SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",9,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN MANCHOW SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN HOT N SOUR SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN LEMON SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CREAMY MUSHROOM CHICKEN SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+SEAFOOD SOUP,6593cd466f5d76b3f95cea08,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PRAWNS NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN SCHEZWAN NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MIXED NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+TRIPLE SCHEZWAN NOODLES,6593cd636f5d76b3f95cea0c,"[""[\""655ef6721532830df6b987bb\""]""]",22,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+VEG FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+EGG FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PRAWNS FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN SCHEZWAN FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MIXED FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+TRIPLE SCHEZWAN FRIED RICE,6593cd846f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",20,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GOPI 65,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GOBI CHILLY,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GOBI MANCHURIAN,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BABYCORN 65,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BABYCORN CHILLY,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BABYCORN MANCHURIAN,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM 65,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MASHROOM CHILLY,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM MANCHURIAN,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+MUSHROOM PEPPER,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER 65,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER CHILLY,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PANEER MANCHURIAN,6593cda36f5d76b3f95cea10,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+GINGER CHICKEN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+LEMON CHICKEN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN 65,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN CHILLY,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN MANCHURIAN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PEPPER CHICKEN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN GARLIC,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+DRAGON CHICKEN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+HONEY CRISPY CHICKEN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN LOLLIPOP,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN LOLLIPOP GRAVY,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF CHILLY,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF 65,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF MANCHURIAN,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+PRAWNS CHILLY,6593cdc46f5d76b3f95cea18,"[""[\""655ef6721532830df6b987bb\""]""]",16,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN WITH 3 BREADS,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",10,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN WITH 3 BREADS1,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN WITH 3 BREADS2,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN WITH 3 BREADS3,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN WITH 3 BREADS4,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",15,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHICKEN WITH RICE,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF WITH 3 BREADS1,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",11,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF WITH 3 BREADS2,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",12,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF WITH 3 BREADS3,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",13,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+BEEF WITH RICE,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",14,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHINEESE COMBO1,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",17,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHINEESE COMBO2,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",18,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHINEESE COMBO3,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",22,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
+CHINEESE COMBO4,6593cddb6f5d76b3f95cea1c,"[""[\""655ef6721532830df6b987bb\""]""]",24,655ef1cfb3999d1add24f83e,CHINEESE COMBO,no,no,no,imgae-1704261675496. black_friday_banner_02.jpg
