@@ -40,7 +40,7 @@ app.listen(PORT, () => {
 
 
 
-  app.use(cors({ origin: 'https://taha-two.vercel.app/' }));
+  app.use(cors({ origin: 'https://taha-two.vercel.app' }));
 const allowedOrigins = ['https://taha-two.vercel.app'];
 
 app.use(cors({
