@@ -494,6 +494,7 @@ const PosNewOrder = () => {
             // setShowPrintModal(true);
 
            // console.info(orderData);
+           //window.location.reload();
             setCart([]);
             setTabEnabled({
               dineIn: true,
@@ -786,6 +787,7 @@ const PosNewOrder = () => {
               // Open your print modal here
              // console.log(res);
               openPrintModal(res.data);
+            //  window.location.reload();
             } else {
               setRefresh((prevRefresh) => !prevRefresh);
             }

@@ -59,6 +59,8 @@ const OpenningBalance = () => {
             toast.onmouseleave = Swal.resumeTimer;
           },
         }).then(() => {
+
+          window.location.reload();
           navigate('/pos');
         });
       })

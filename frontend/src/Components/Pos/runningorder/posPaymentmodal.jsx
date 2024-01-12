@@ -8,7 +8,8 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
 
   const navigate = useNavigate();
 
-  const [payments, setPays] = useState();
+  const [payments, setPays] = useState('');
+  const [paymentError, setPaymentError] = useState('');
   const [processedIds, setProcessedIds] = useState([]);
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
@@ -29,7 +30,7 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
 
   const handlePays = (event) => {
     setPays(event.target.value);
-
+    setPaymentError('');
     //  alert({svat});
   }
 
@@ -39,6 +40,16 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
     if (!order || order?.grandTotal == null) {
       // Handle the case where order is null or grandTotal is not available
       console.error("Invalid order data");
+      return;
+    }
+
+    if (!payments) {
+      setPaymentError('Please select a payment option'); // Set the validation error message
+      Swal.fire({
+        icon: 'error',
+        title: 'Validation Error',
+        text: 'Please select a payment option.',
+      });
       return;
     }
 
@@ -102,12 +113,13 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
     });
 
 
- 
+   
     function getFormattedOrderDetails(data) {
       // Create an HTML structure to display the order details
+      const logoPath = `/assets/images/pos/${imageName}`;
       let formattedDetails = `
         <div style="font-family: Arial; text-align: center;">
-          <img  src="/assets/images/pos/${imageName}" alt="Logo" style="max-width: 100%; height: auto; margin-top: 10px;" />
+        <img src="${logoPath}" alt="Logo" style="max-width: 100%; height: auto; margin-top: 10px;" />
           <p style="margin-top: 10px;"><strong>Order Number:</strong> ${data.ordernumber}</p>
          
           <p><strong>Options:</strong> ${data.options}</p>
@@ -143,23 +155,24 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
     }
     
     function printOrderDetails(data) {
-      const modalContent = getFormattedOrderDetails(data);
-      
+      const logoPath = `/assets/images/pos/${imageName}`;
+      const modalContent = getFormattedOrderDetails(data, logoPath);
+    
       // Create a hidden iframe
       const iframe = document.createElement("iframe");
       iframe.style.display = "none";
       document.body.appendChild(iframe);
-      
+    
       // Write the formatted order details to the iframe
       const iframeDocument = iframe.contentWindow.document;
       iframeDocument.write('<html><head><title>Order Details</title></head><body>');
       iframeDocument.write(modalContent);
       iframeDocument.write('</body></html>');
       iframeDocument.close();
-      
+    
       // Trigger the print operation
       iframe.contentWindow.print();
-      
+    
       // Remove the iframe after printing
       setTimeout(() => {
         document.body.removeChild(iframe);
@@ -228,8 +241,8 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
                     <div className="form-group row">
                       <label for="exampleInputUsername2" className="col-sm-3 col-form-label">Select Payment</label>
                       <div className="col-sm-9">
-                        <select className="form-control" onChange={handlePays} value={payments}>
-                          <option>Select Payment</option>
+                        <select className="form-control" onChange={handlePays} value={payments} required>
+                          <option value="">Select Payment</option>
                           {payment.map(option => (
                             <option key={option.value} value={option.value}>
                               {option.label}
