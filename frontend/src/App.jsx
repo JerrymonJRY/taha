@@ -77,6 +77,8 @@ import AddExpenseInvoice from './Components/ExpenseInvoice/addExpenseInvoice';
 import EditExpenseInvoice from './Components/ExpenseInvoice/editExpenseInvoice';
 import ImportFoodmenu from './Components/Foodmenu/importfoodmenu';
 import ImportFoodCategory from './Components/Foodcategory/importFoodcategory';
+import ViewUser from './Components/userPages/users';
+import AddUser from './Components/userPages/addUser';
 function App() {
 
   //const navigate = useNavigate();
@@ -230,6 +232,11 @@ function App() {
               <Route path='/viewDesignation' element={<RequireToken><ViewDesignation /></RequireToken>}></Route>
               <Route path='/addDesignation' element={<RequireToken><AddDesignation /></RequireToken>}></Route>
               <Route path='/editDesignation/:id' element={<RequireToken><EditDesignation /></RequireToken>}></Route>
+
+              {/* User */}
+
+              <Route path='/viewuser' element={<RequireToken><ViewUser /></RequireToken>}></Route>
+              <Route path='/adduser' element={<RequireToken><AddUser /></RequireToken>}></Route>
      
 
      
