@@ -84,7 +84,7 @@ function  Login() {
                         <label className="form-check-label text-muted">
                           <input type="checkbox" className="form-check-input" /> Keep me signed in </label>
                       </div>
-                      <a href="#" className="auth-link text-black">Forgot password?</a>
+                      {/* <a href="#" className="auth-link text-black">Forgot password?</a> */}
                     </div>
                   
                   
