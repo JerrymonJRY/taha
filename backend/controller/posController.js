@@ -452,6 +452,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       waiterId,
       tableId,
       delivery,
+      addedby,
     } = req.body;
     console.log(req.body);
 
@@ -486,6 +487,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       tableId: tableId,
       paymentstatus: paymentstatus,
       delivery: delivery,
+      addedby: addedby,
     });
     const quick = await newEntry.save();
 
@@ -547,6 +549,22 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       transtype: transtype,
     });
     await newTransaction.save();
+
+    const updateBill = await Pos.updateOne(
+      { _id: quick._id },
+      {
+        $set: {
+          billnumber: billIdnumber,
+        },
+      }
+    );
+
+    // Find the updated document
+    const updatedDocuments = await Pos.findById(quick._id);
+
+
+    //const updatedDocument = await Pos.findById(id);
+
 
     res.json(newEntry);
   } catch (error) {

@@ -577,3 +577,30 @@ span.right{
 td.capitalize-first-letter {
     text-transform: capitalize;
   }
+
+
+/* styles.css */
+.order-details-container {
+    font-family: Arial;
+    text-align: center;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .cart-item {
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+
+  .cart-items {
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+  
+  

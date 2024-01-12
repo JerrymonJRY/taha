@@ -563,17 +563,17 @@ const PosNewOrder = () => {
   }
 
   // useEffect(() => { }, [refresh]);
-  const imagePath = "http://localhost:5173/assets/images/pos/taha.png";
+  const imagePath = "/assets/images/pos/taha.png";
   function getFormattedOrderDetails(data) {
     // Create an HTML structure to display the order details
     let formattedDetails = `
       <div style="font-family: Arial; text-align: center;">
-      <img src="${imagePath}" alt="Logo" style="max-width: 100%; height: auto; margin-top: 10px;" />
+      <img src="${window.location.origin}${imagePath}" alt="Logo" style="max-width: 100%; height: auto; margin-top: 10px;" />
         <p style="margin-top: 10px;"><strong>Order Number:</strong> ${data.ordernumber}</p>
        
         <p><strong>Options:</strong> ${data.options}</p>
      
-        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; text-align: left;">
+        <table class="cart-items" style="width: 100%; border-collapse: collapse; margin-top: 10px; text-align: left;">
           <thead style="border-bottom: 1px solid #000;">
             <tr><th>Item</th><th>Food Menu Name</th><th>Sales Price</th><th>Quantity</th></tr>
           </thead>
@@ -583,10 +583,10 @@ const PosNewOrder = () => {
     data.cart.forEach((item, index) => {
       formattedDetails += `
         <tr>
-          <td >${index + 1}</td>
-          <td className="capitalize-first-letter">${item.foodmenuname}</td>
-          <td>${item.salesprice}</td>
-          <td>${item.quantity}</td>
+          <td>${index + 1}</td>
+          <td class="cart-item">${item.foodmenuname}</td>
+          <td class="cart-item">${item.salesprice}</td>
+          <td class="cart-item">${item.quantity}</td>
         </tr>
       `;
     });
@@ -770,7 +770,7 @@ const PosNewOrder = () => {
       if (selectWaiter && selectWaiter._id) {
         posData.append("waiterId", selectWaiter._id);
       }
-      posData.append("addedby", addedby);
+      posData.append('addedby', addedby);
       const config = { headers: { "Content-Type": "application/json" } };
       axios
         .post(`${apiConfig.baseURL}/api/pos/createQuickpay`, posData, config)
@@ -822,7 +822,7 @@ const PosNewOrder = () => {
 
   return (
     <div className="row">
-      <div className="col-sm-4 col-lg-auto">
+      <div className="col-sm-4 col-lg-4">
         <div className="wraper shdw">
           <div
             className="table-responsive vh-70"
@@ -945,7 +945,7 @@ const PosNewOrder = () => {
           </div>
         </div>
       </div>
-      <div className="col-lg-auto" style={{ background: "white" }}>
+      <div className="col-lg-1" style={{ background: "white" }}>
         <div
           class="nav flex-column nav-pills"
           id="v-pills-tab"
