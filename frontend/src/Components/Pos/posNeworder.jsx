@@ -1043,7 +1043,7 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
           aria-orientation="vertical"
         >
           <a
-            class="nav-link active text-center navleft"
+            class="nav-link  text-center navleft"
             id="v-pills-home-tab"
             data-toggle="pill"
             href="#v-pills-home"

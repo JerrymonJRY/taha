@@ -80,8 +80,8 @@
 }
 .main-content .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     border: 0;
-    background: rgb(255,0,0);
-    background: linear-gradient(320deg, rgba(255,0,0,1) 0%, rgba(225,8,8,1) 100%);
+    background: #c82333 ;
+    background: linear-gradient(320deg, #c82333 0%, #c82333 100%);
     border-radius: 10px;
     margin-top: -5px;
     /* height: 115%; */
@@ -89,6 +89,11 @@
     font-weight: 700;
    padding: 13px;
   
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff !important;
+    background-color: #c82333 !important;
 }
 .w-55{
     width: 90px !important;
