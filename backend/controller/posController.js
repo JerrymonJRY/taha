@@ -566,7 +566,8 @@ const insertQuickpay = asyncHandler(async (req, res) => {
     //const updatedDocument = await Pos.findById(id);
 
 
-    res.json(newEntry);
+   // res.json(newEntry,updateBill);
+   res.json({ newEntry, updatedDocuments });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "An error occurred while inserting data" });
