@@ -530,9 +530,14 @@ const PosNewOrder = () => {
         th {
           background-color: #f2f2f2;
         }
+        td
+        {
+          font-size:13px;
+          text-transform: capitalize;
+        }
         .order-info {
-          display: flex;
-          justify-content: space-between;
+          font-size:13px;
+          text-transform: capitalize;
         }
       </style>
     `);
@@ -564,9 +569,9 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
       orderData.cart.forEach((item) => {
         printWindow.document.write(`
           <tr>
-            <td>${item.foodmenuname}</td>
-            <td>${item.quantity}</td>
-            <td>${item.salesprice}</td>
+            <td >${item.foodmenuname}</td>
+            <td >${item.quantity}</td>
+            <td >${item.salesprice}</td>
           </tr>
         `);
       });
@@ -814,6 +819,11 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
         }
         th {
           background-color: #f2f2f2;
+        }
+        td
+        {
+          font-size:11px;
+          text-transform: capitalize;
         }
         .order-info {
           display: flex;
