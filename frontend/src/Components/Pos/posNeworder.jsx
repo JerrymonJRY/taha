@@ -803,6 +803,7 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
   const printQuickDetails = (newEntry, updatedDocuments) => {
     const printWindow = window;
     printWindow.document.write('<html><head><title>Order Details</title>');
+    
     // Add style for center alignment and table styling
     printWindow.document.write(`
       <style>
@@ -810,7 +811,6 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
         table {
           width: 100%;
           border-collapse: collapse;
-         
         }
         th, td {
           border: 1px solid #ddd;
@@ -820,9 +820,8 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
         th {
           background-color: #f2f2f2;
         }
-        td
-        {
-          font-size:11px;
+        td {
+          font-size: 11px;
           text-transform: capitalize;
         }
         .order-info {
@@ -831,60 +830,63 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
         }
       </style>
     `);
+  
     printWindow.document.write('</head><body>');
     
     // Include order details and image in the print window
-    
     printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
     printWindow.document.write(`<p>Bill Number: ${updatedDocuments.billnumber}</p>`);
     printWindow.document.write(`<p>Order ID: ${newEntry.ordernumber}</p>`);
+    
     const orderDate = new Date(newEntry.date);
-const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
-printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
-   
+    const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
+    printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
     
     // Print details of each item in the cart in a table
     if (newEntry.cart && newEntry.cart.length > 0) {
-     
       printWindow.document.write(`
         <table>
           <thead>
             <tr>
               <th>Food Name</th>
               <th>Qty</th>
-              <th>Price</th>
+              <th>Total Price</th>
             </tr>
           </thead>
           <tbody>
       `);
+      
+      let subtotal = 0;
+  
       newEntry.cart.forEach((item) => {
+        const totalPrice = item.quantity * item.salesprice;
+        subtotal += totalPrice;
+  
         printWindow.document.write(`
           <tr>
             <td>${item.foodmenuname}</td>
             <td>${item.quantity}</td>
-            <td>${item.salesprice}</td>
+            <td>${totalPrice}</td>
           </tr>
         `);
       });
-      printWindow.document.write('</tbody></table>');
-    }
-
-  printWindow.document.write(`<p>VAT Amount: ${newEntry.vatAmount}</p>`);
- 
-
-
- 
-
-  printWindow.document.write(`<p>Grand Total: ${newEntry.grandTotal}</p>`);
-
   
-    // Include other relevant order information
-    
-    // Add the image with onload event
-    
+      // Calculate VAT amount and overall total
+      const vatPercentValue = 5;
+      const vatAmounts = (subtotal * vatPercentValue) / 100;
+      const overallTotal = subtotal + vatAmount;
+      const subTotals = subtotal - vatAmounts;
+  
+      printWindow.document.write('</tbody></table>');
+      
+      printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
+      printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
+      printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
+    }
   
     printWindow.document.write('</body></html>');
   };
+  
   const handleTabClick = () => {
     setModalOpen(true);
   };
