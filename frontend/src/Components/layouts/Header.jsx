@@ -37,7 +37,7 @@ setShiftsTokens(storedtoken);
   }, []);
 
   const fullName = `${firstname} ${lastname}`;
-  const imageName = "burps.png";
+  const imageName = "tahalogo.png";
   const faceimage ="face1.jpg"
 
   console.log(shiftstokens);

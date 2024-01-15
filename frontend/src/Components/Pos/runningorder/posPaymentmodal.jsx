@@ -14,6 +14,7 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
   const imageName = "taha.png";
+  const [itemTotalPrices, setItemTotalPrices] = useState([]);
 
   useEffect(() => {
     const storeid = localStorage.getItem("_id");
@@ -222,6 +223,7 @@ printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
                       <tbody>
 
                         {order.cart.map((cartItem, key) => (
+                          
                           <tr key={cartItem.foodmenuId}>
                             <td>{key + 1}</td>
                             <td>{cartItem.menuItemDetails.foodmenuname}</td>

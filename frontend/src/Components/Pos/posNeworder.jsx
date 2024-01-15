@@ -552,48 +552,49 @@ const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(ord
 printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
    
     
-    // Print details of each item in the cart in a table
-    if (orderData.cart && orderData.cart.length > 0) {
-     
-      printWindow.document.write(`
-        <table>
-          <thead>
-            <tr>
-              <th>Food Name</th>
-              <th>Qty</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-      `);
-      orderData.cart.forEach((item) => {
-        printWindow.document.write(`
-          <tr>
-            <td >${item.foodmenuname}</td>
-            <td >${item.quantity}</td>
-            <td >${item.salesprice}</td>
-          </tr>
-        `);
-      });
-      printWindow.document.write('</tbody></table>');
-    }
-
-  printWindow.document.write(`<p>VAT Amount: ${orderData.vatAmount}</p>`);
- 
-
-
- 
-
-  printWindow.document.write(`<p>Grand Total: ${orderData.grandTotal}</p>`);
-
+if (orderData.cart && orderData.cart.length > 0) {
+  printWindow.document.write(`
+    <table>
+      <thead>
+        <tr>
+          <th>Food Name</th>
+          <th>Qty</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+  `);
   
-    // Include other relevant order information
-    
-    // Add the image with onload event
-    
+  let subtotal = 0;
+
+  orderData.cart.forEach((item) => {
+    const totalPrice = item.quantity * item.salesprice;
+    subtotal += totalPrice;
+
+    printWindow.document.write(`
+      <tr>
+        <td>${item.foodmenuname}</td>
+        <td>${item.quantity}</td>
+        <td>${totalPrice}</td>
+      </tr>
+    `);
+  });
+
+  // Calculate VAT amount and overall total
+  const vatPercentValue = 5;
+  const vatAmounts = (subtotal * vatPercentValue) / 100;
+  const overallTotal = subtotal + vatAmount;
+  const subTotals = subtotal - vatAmounts;
+
+  printWindow.document.write('</tbody></table>');
   
-    printWindow.document.write('</body></html>');
-  };
+  printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
+  printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
+  printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
+}
+
+printWindow.document.write('</body></html>');
+};
 
   const componentRef = useRef(null);
 
