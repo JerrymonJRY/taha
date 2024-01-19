@@ -453,6 +453,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       tableId,
       delivery,
       addedby,
+      shiftstoken,
     } = req.body;
     console.log(req.body);
 
@@ -517,6 +518,8 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       vatAmount: vatAmount,
       grandTotal: grandTotal,
       paymentType: paymentType,
+      addedby:addedby,
+      shiftstoken:shiftstoken,
     });
 
     const finaldata = await cashpayment.save();
@@ -853,3 +856,5 @@ module.exports = {
   calculateTable,
   getorders
 };
+
+

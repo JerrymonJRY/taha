@@ -7,20 +7,24 @@ var openningBalanceSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
       },
+      
     amount: {
         type: String,
         required: true,
-        unique: true,
+     
       
     },
     shiftstoken:{
         type: String,
         
     },
+    shiftacess:{type: String,},
      status: { type: String, default: 'Active' },
     date: { type: Date, default: Date.now },
+   closingamount:{type: String, default: 'null' }
 
 });
 
 // Export the model
 module.exports = mongoose.model('Openningbalance', openningBalanceSchema);
+

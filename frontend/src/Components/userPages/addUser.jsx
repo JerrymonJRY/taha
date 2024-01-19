@@ -8,6 +8,9 @@ import { redirect, useNavigate,Link } from "react-router-dom";
 import apiConfig from '../layouts/base_url';
 const AddUser =() =>{
 
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [userrole,setUserRole] =useState('');
+
     const [values,setValues] = useState({
 
         firstname :'',
@@ -16,8 +19,27 @@ const AddUser =() =>{
         mobile:'',
         password:'',
        
+        userrole: ''
+       
 
     })
+
+    const UserRoles  = [
+      { value: 'Admin', label: 'Admin' },
+      { value: 'Manager', label: 'Manager' },
+      { value: 'Cashier', label: 'Cashier' },
+      { value: 'Delivery', label: 'Delivery' },
+      { value: 'Waiter', label: 'Waiter' },
+
+     
+     
+    ];
+
+    const handleUserRole = (event) => {
+      setUserRole(event.target.value);
+    //  alert({svat});
+     }
+    
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     const handleSubmit =(event) =>{
@@ -63,6 +85,15 @@ const AddUser =() =>{
       if (!data.password) {
         errors.password = "Password is required";
       }
+
+      if (data.password !== data.confirmPassword) {
+        errors.confirmPassword = "Passwords do not match";
+      }
+
+      
+  if (!data.userrole) {
+    errors.userrole = "User Role is required";
+  }
   
   
      
@@ -132,6 +163,38 @@ const AddUser =() =>{
                         <div className="col-sm-9">
                           <input type="text" className="form-control" name="password" id="exampleInputUsername2" onChange={e =>setValues({...values, password: e.target.value})} placeholder="" />
                           {errors.password && <span className="error">{errors.password}</span>}
+                        </div>
+                      </div>
+
+
+                      <div className="form-group row">
+  <label for="exampleInputUsername2" className="col-sm-3 col-form-label">Confirm Password</label>
+  <div className="col-sm-9">
+    <input
+      type="password"
+      className="form-control"
+      name="confirmPassword"
+      id="exampleInputUsername2"
+     // onChange={(e) => setConfirmPassword(e.target.value)}
+     onChange={e =>setValues({...values, confirmPassword: e.target.value})}
+      placeholder=""
+    />
+    {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+  </div>
+</div>
+
+<div className="form-group row">
+                        <label htmlFor="exampleInputUsername2" className="col-sm-3 col-form-label">User Roles</label>
+                        <div className="col-sm-9">
+                        <select name="beverage" className="form-control"   onChange={e =>setValues({...values, userrole: e.target.value})}  value={userrole}>
+                        <option value="">Select User Role</option>
+      {UserRoles.map(option => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
+    {errors.userrole && <span className="error">{errors.userrole}</span>}
                         </div>
                       </div>
 

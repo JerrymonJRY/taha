@@ -1,11 +1,15 @@
 const asyncHandler =require('express-async-handler');
 const Balance =require('../models/openningbalanceModel')
 const Transaction =require('../models/acctransactionModel');
+const User =require('../models/userModel');
 
 const createBalance = asyncHandler(async (req, res) => {
   const { amount,addedby,shiftstoken } = req.body;
 
   try {
+
+    
+    
    
     const latestBalance = await Balance.findOne({}).sort('-openningbalancenumber');
     let nextIdNumber = 'OB10001';
@@ -30,6 +34,7 @@ const createBalance = asyncHandler(async (req, res) => {
       amount: amount,
       addedby:addedby,
       shiftstoken:shiftstoken,
+      shiftacess:nextIdNumber,
     });
 
     
@@ -61,7 +66,8 @@ const createBalance = asyncHandler(async (req, res) => {
           transmode:transmode,
           amount:amount,
           transtype:transtype,
-          shiftstoken:shiftstoken
+          shiftstoken:shiftstoken,
+          shiftacess:nextIdNumber,
   
   
     
@@ -70,6 +76,17 @@ const createBalance = asyncHandler(async (req, res) => {
         
         });
         await newTransaction.save();
+
+        const findUser = await User.findOne({ _id: addedby });
+
+        
+        const updateUser = await User.findByIdAndUpdate(
+          findUser.id,
+          {
+            shiftacess: nextIdNumber,
+          },
+          { new: true }
+        );
 
 
 

@@ -244,14 +244,101 @@ cart.forEach(icart => {
             confirmButtonText: 'Yes, print',
             cancelButtonText: 'No',
           }).then((result) => {
-            navigate('/pos');
+
+            console.log(posData);
+
+            // printOrderDetails(res.data);
+            // navigate('/pos');
           });
         })
         .catch(err => console.log(err));
     }
 
      // console.log(posData);
-  
+     const imagePaths = "/assets/images/pos/taha.png";
+
+
+     const printOrderDetails = (orderData) => {
+       const printWindow = window;
+       printWindow.document.write('<html><head><title>Order Details</title>');
+       // Add style for center alignment and table styling
+       printWindow.document.write(`
+         <style>
+           body { text-align: center; }
+           table {
+             width: 100%;
+             border-collapse: collapse;
+            
+           }
+           th, td {
+             border: 1px solid #ddd;
+             padding: 8px;
+             text-align: left;
+           }
+           th {
+             background-color: #f2f2f2;
+           }
+           .order-info {
+             display: flex;
+             justify-content: space-between;
+           }
+         </style>
+       `);
+       printWindow.document.write('</head><body>');
+       
+       // Include order details and image in the print window
+       
+       printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
+    
+       printWindow.document.write(`<p>Order ID: ${orderData.ordernumber}</p>`);
+       const orderDate = new Date(orderData.date);
+   const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
+   printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
+      
+       
+       // Print details of each item in the cart in a table
+       if (orderData.cart && orderData.cart.length > 0) {
+        
+         printWindow.document.write(`
+           <table>
+             <thead>
+               <tr>
+                 <th>Food Name</th>
+                 <th>Qty</th>
+                 <th>Price</th>
+               </tr>
+             </thead>
+             <tbody>
+         `);
+         orderData.cart.forEach((item) => {
+           printWindow.document.write(`
+             <tr>
+               <td>${item.foodmenuname}</td>
+               <td>${item.quantity}</td>
+               <td>${item.salesprice}</td>
+             </tr>
+           `);
+         });
+         printWindow.document.write('</tbody></table>');
+       }
+   
+     printWindow.document.write(`<p>VAT Amount: ${orderData.vatAmount}</p>`);
+    
+   
+   
+    
+   
+     printWindow.document.write(`<p>Grand Total: ${orderData.grandTotal}</p>`);
+   
+     
+       // Include other relevant order information
+       
+       // Add the image with onload event
+       
+     
+       printWindow.document.write('</body></html>');
+     };
+   
   
 
 

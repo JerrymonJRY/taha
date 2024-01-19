@@ -44,3 +44,13 @@ export const setShiftToken = (shifttoken) =>{
   // set token in localStorage
   localStorage.setItem('shifttoken', shifttoken)
 }
+
+export const setUserRole = (userrole) =>{
+  // set token in localStorage
+  localStorage.setItem('userrole', userrole)
+}
+
+export const setUserAccess = (shiftacess) =>{
+  // set token in localStorage
+  localStorage.setItem('shiftacess', shiftacess)
+}

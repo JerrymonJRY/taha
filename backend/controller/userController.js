@@ -53,6 +53,8 @@ const loginUserController =asyncHandler(async(req,res) =>{
             mobile:findUser?.mobile,
             token:generateToken(findUser?._id),
             shifttoken: shiftToken,
+            userrole:findUser?.userrole,
+            shiftacess:findUser?.shiftacess,
 
 
 
@@ -121,8 +123,6 @@ const logout = asyncHandler(async (req, res) => {
     });
     res.sendStatus(204); // forbidden
   });
-
-
 
   const getallUsers = asyncHandler(async (req, res) => {
     try {

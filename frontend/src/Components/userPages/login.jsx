@@ -3,7 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { redirect, useNavigate } from "react-router-dom";
 import apiConfig from '../layouts/base_url';
-import { setToken,setfirstNames,setlastNames,setUserId,setShiftToken } from '../routes/PrivateRoutes';
+import { setToken,setfirstNames,setlastNames,setUserId,setShiftToken,setUserRole,setUserAccess } from '../routes/PrivateRoutes';
 function  Login() {
 
   const [email,setEmail]=useState()
@@ -23,9 +23,10 @@ function  Login() {
    axios.post(`${apiConfig.baseURL}/api/user/login`, { email, password })
     
     .then((response) => {
-
+   
       if (response.data) {
      
+       
             const data = response.data;
             if (data && data.token) {
               console.log(data.token);
@@ -36,6 +37,8 @@ function  Login() {
                setlastNames(data.lastname);
                setUserId(data._id);
                setShiftToken(data.shifttoken);
+               setUserRole(data.userrole);
+               setUserAccess(data.shiftacess);
              } else {
         
                }
@@ -79,13 +82,7 @@ function  Login() {
                     <div className="mt-3">
                       <input type='submit' onClick={handleLogin} className="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" value="Sign in" />
                     </div>
-                    <div className="my-2 d-flex justify-content-between align-items-center">
-                      <div className="form-check">
-                        {/* <label className="form-check-label text-muted">
-                          <input type="checkbox" className="form-check-input" /> Keep me signed in </label> */}
-                      </div>
-                      {/* <a href="#" className="auth-link text-black">Forgot password?</a> */}
-                    </div>
+                   
                   
                   
                   </form>

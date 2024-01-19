@@ -29,6 +29,10 @@ var userSchema = new mongoose.Schema({
         required:true,
         unique:true,
     },
+    userrole:{
+       type:String
+       
+    },
     password:{
         type:String,
         required:true,
@@ -40,6 +44,7 @@ var userSchema = new mongoose.Schema({
         type: String,
         
     },
+    shiftacess:{ type: String, default: 'null'},
   status: { type: String, default: 'Active' },
 });
 

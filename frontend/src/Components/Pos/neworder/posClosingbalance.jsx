@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
-import { redirect, useNavigate, Link } from "react-router-dom";
+import { redirect, useNavigate, Link,useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -15,6 +15,7 @@ import apiConfig from '../../layouts/base_url';
 const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) => {
 
   const navigate  = useNavigate();
+  const { id } = useParams();
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
   const [posclosebalance, setPosCloseBalance] = useState([]);
@@ -38,13 +39,20 @@ const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) =>
   // }, []);
   // console.log(posclosebalance);
 
+  console.log(addedby);
+
   const handleCloseBalance = () => {
     setModalClosingBalance(false);
   }
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${apiConfig.baseURL}/api/pos/closingBalance?shiftstoken=${encodeURIComponent(shiftstoken)}`);
+        const response = await axios.get(`${apiConfig.baseURL}/api/pos/closingBalance`, {
+          params: {
+            addedby: addedby,
+          },
+        });
+        console.log(response.data)
         setPosCloseBalance(response.data);
       } catch (error) {
         console.error('Error fetching closing balance:', error);
@@ -52,7 +60,7 @@ const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) =>
     };
   
     fetchData();
-  }, []);
+  }, [addedby]); 
 
   const handleCloseShift = () => {
     Swal.fire({
@@ -64,7 +72,7 @@ const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) =>
     }).then((result) => {
       if (result.isConfirmed) {
         // axios.post(`${apiConfig.baseURL}/api/pos/closeShift`, { shiftstoken })
-        axios.put(`${apiConfig.baseURL}/api/pos/closeShift?shiftstoken=${encodeURIComponent(shiftstoken)}`)
+        axios.put(`${apiConfig.baseURL}/api/pos/closeShift?addedby=${encodeURIComponent(addedby)}`)
           .then((response) => response.data) 
           .then((data) => {
             // Handle success
