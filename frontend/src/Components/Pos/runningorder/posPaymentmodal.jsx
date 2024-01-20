@@ -36,6 +36,38 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
     //  alert({svat});
   }
 
+  const [shiftAccess, setShiftAccess] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = localStorage.getItem('_id');
+
+        if (!id) {
+          // Handle the case when storeid is not available in localStorage
+          console.error('Store ID not found in localStorage');
+          return;
+        }
+
+        //const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess?storeid=${storeid}`);
+       const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess`, {
+          params: {
+            id: id,
+          },
+        });
+       // console.log(response.data);
+       const shiftdata = response.data;
+
+        // Assuming response.data contains the shiftAccess data
+        setShiftAccess(shiftdata.shiftacess);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   const handleMakePayment = (id, order) => {
 
@@ -62,6 +94,7 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
     formData.append("grandTotal", order.grandTotal);
     formData.append("addedby", addedby);
     formData.append("shiftstoken", shiftstoken);
+    formData.append('opentoken',shiftAccess)
 
     //formData.append("foodmenuname", foodmenuname);
 

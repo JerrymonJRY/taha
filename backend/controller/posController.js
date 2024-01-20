@@ -107,6 +107,7 @@ const insertPos = asyncHandler(async (req, res) => {
       delivery,
       numberofperson,
       addedby,
+      opentoken,
     } = req.body;
     console.log(req.body);
 
@@ -142,6 +143,7 @@ const insertPos = asyncHandler(async (req, res) => {
       paymentstatus: paymentstatus,
       delivery: delivery,
       addedby: addedby,
+      opentoken:opentoken,
     });
 
     const finaldata = await newEntry.save();
@@ -167,7 +169,7 @@ const insertPos = asyncHandler(async (req, res) => {
 const updatePayment = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
-    const { paymentType, total, vatAmount, grandTotal,addedby,shiftstoken } = req.body;
+    const { paymentType, total, vatAmount, grandTotal,addedby,shiftstoken,opentoken } = req.body;
     let paymentstatus = "paid";
     const updateResult = await Pos.updateOne(
       { _id: id },
@@ -221,6 +223,7 @@ const updatePayment = asyncHandler(async (req, res) => {
       paymentType: paymentType,
       addedby:addedby,
       shiftstoken:shiftstoken,
+      opentoken:opentoken,
     });
 
     const finaldata = await cashpayment.save();
@@ -252,6 +255,7 @@ const updatePayment = asyncHandler(async (req, res) => {
       amount: grandTotal,
       transtype: transtype,
       shiftstoken:shiftstoken,
+      opentoken:opentoken,
     });
     await newEntry.save();
 
@@ -454,6 +458,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       delivery,
       addedby,
       shiftstoken,
+      opentoken,
     } = req.body;
     console.log(req.body);
 
@@ -489,6 +494,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       paymentstatus: paymentstatus,
       delivery: delivery,
       addedby: addedby,
+      opentoken:opentoken,
     });
     const quick = await newEntry.save();
 
@@ -520,6 +526,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       paymentType: paymentType,
       addedby:addedby,
       shiftstoken:shiftstoken,
+      opentoken:opentoken,
     });
 
     const finaldata = await cashpayment.save();
@@ -550,6 +557,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       transmode: transmode,
       amount: grandTotal,
       transtype: transtype,
+      
     });
     await newTransaction.save();
 

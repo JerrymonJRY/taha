@@ -25,6 +25,7 @@ var paymentSchema = new mongoose.Schema({
     type: String,
     
 },
+opentoken:{type:String},
 
     date: { type: Date, default: Date.now },
  

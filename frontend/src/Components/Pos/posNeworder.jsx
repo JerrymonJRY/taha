@@ -46,27 +46,33 @@ const PosNewOrder = () => {
 
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
+  const [shiftAccess, setShiftAccess] = useState('');
+ 
+ // setOpentoken(dit);
+ // const dit = shiftAccess.shiftacess; 
 
   const { id } = useParams();
   useEffect(() => {
     const storeid = localStorage.getItem("_id");
     const storetoken = localStorage.getItem('shifttoken');
     const storeaccess = localStorage.getItem('shiftacess');
+  
     setuserid(storeid);
     setShiftstoken(storetoken);
+    
    
 
 
   }, []);
 
 
-  //const [shiftacess, setShiftacess] = useState([]);
+ 
 
-  const [shiftAccess, setShiftAccess] = useState('');
+  
 
-  const dit = shiftAccess.shiftacess; 
+  
 
-  console.log(dit);
+  //const [shiftAccess, setShiftAccess] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,9 +92,10 @@ const PosNewOrder = () => {
           },
         });
        // console.log(response.data);
+       const shiftdata = response.data;
 
         // Assuming response.data contains the shiftAccess data
-        setShiftAccess(response.data);
+        setShiftAccess(shiftdata.shiftacess);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
@@ -511,6 +518,7 @@ const PosNewOrder = () => {
       posData.append('total', totalAmount);
       posData.append('foodoption', options);
       posData.append('addedby', addedby);
+      posData.append('opentoken',shiftAccess);
       if (selectTable && selectTable._id) {
         posData.append('tableId', selectTable._id);
         posData.append('numberofperson', numberofperson);
@@ -826,6 +834,7 @@ printWindow.document.write('</body></html>');
       }
       posData.append('addedby', addedby);
       posData.append('shiftstoken','shiftstoken');
+      posData.append('opentoken',shiftAccess);
       const config = { headers: { "Content-Type": "application/json" } };
       axios
         .post(`${apiConfig.baseURL}/api/pos/createQuickpay`, posData, config)
@@ -1063,16 +1072,7 @@ printWindow.document.write('</body></html>');
             </table>
           </div>
 
-          {shiftAccess && (
-  <div>
-   
-    <div>
-      <p>Firstname: {shiftAccess.firstname}</p>
-      <p>Email: {shiftAccess.shiftacess}</p>
-      {/* Add more properties as needed */}
-    </div>
-  </div>
-)}
+
           <div className="row">
             <div className="col-lg-6">
               <button type="button" className="btn btn-danger w-100 mb-2 p-2">
@@ -1868,4 +1868,5 @@ printWindow.document.write('</body></html>');
 };
 
 export default PosNewOrder;
+
 

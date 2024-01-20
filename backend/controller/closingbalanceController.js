@@ -51,33 +51,39 @@ const closingbalance = asyncHandler(async (req, res) => {
 
 
 
-
 const closeShift = asyncHandler(async (req, res) => {
-  const addedbyParam = req.query.addedby;
+  const shiftAccessParam = req.query.shiftaccess;
 
   try {
-    if (!mongoose.Types.ObjectId.isValid(addedbyParam)) {
-      return res.status(400).json({ error: 'Invalid ObjectId' });
-    }
+    // Validate the ObjectId (if needed)
+    // if (!mongoose.Types.ObjectId.isValid(addedbyParam)) {
+    //   return res.status(400).json({ error: 'Invalid ObjectId' });
+    // }
 
+    console.log('Shift Access:', shiftAccessParam);
+
+    // Update the opening balance status to 'Closed'
     const updatedOpeningBalance = await Balance.findOneAndUpdate(
-      { addedby: addedbyParam },
+      { shiftacess: shiftAccessParam },
       { $set: { status: 'Closed' } },
       { new: true }
     );
 
+    // Check if the opening balance was found and updated
     if (!updatedOpeningBalance) {
-      return res.status(404).json({ error: 'Opening balance not found' });
+      return res.status(404).json({ error: 'Opening balance not found or not updated' });
     }
 
+    // Send the updated opening balance as JSON response
     res.json(updatedOpeningBalance);
   } catch (error) {
-    console.error(error); // Log the error for debugging purposes
+    console.error('Error closing shift:', error);
 
-    // You might want to include more details in the response for development purposes
+    // Respond with an error status and details
     res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
+
 
 
 const getShiftAccess = asyncHandler(async (req, res) => {
@@ -110,4 +116,4 @@ const getShiftAccess = asyncHandler(async (req, res) => {
 
 
 
-module.exports ={closingbalance,closeShift,getShiftAccess} 
+module.exports ={closingbalance,closeShift,getShiftAccess}  

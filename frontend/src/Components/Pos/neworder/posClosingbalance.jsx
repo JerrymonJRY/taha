@@ -41,27 +41,72 @@ const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) =>
 
   console.log(addedby);
 
+  const [shiftaccess, setShiftAccess] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = localStorage.getItem('_id');
+
+        if (!id) {
+          // Handle the case when storeid is not available in localStorage
+          console.error('Store ID not found in localStorage');
+          return;
+        }
+
+        //const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess?storeid=${storeid}`);
+       const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess`, {
+          params: {
+            id: id,
+          },
+        });
+       // console.log(response.data);
+       const shiftdata = response.data;
+
+        // Assuming response.data contains the shiftAccess data
+        setShiftAccess(shiftdata.shiftacess);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleCloseBalance = () => {
     setModalClosingBalance(false);
   }
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDatas = async () => {
       try {
-        const response = await axios.get(`${apiConfig.baseURL}/api/pos/closingBalance`, {
+        const responses = await axios.get(`${apiConfig.baseURL}/api/pos/closingBalance`, {
           params: {
             addedby: addedby,
           },
         });
-        console.log(response.data)
-        setPosCloseBalance(response.data);
+
+        console.log(responses.data);
+
+        if (responses.data.length > 0) {
+          const firstItem = responses.data[0];
+          const shiftacesstoken = firstItem.shiftacess;
+
+          if (shiftacesstoken === shiftaccess) {
+            setPosCloseBalance([firstItem]); // Wrap the item in an array
+          } else {
+            console.log('Shiftacess does not match the desired value');
+          }
+        } else {
+          console.log('No data in the response array');
+        }
       } catch (error) {
         console.error('Error fetching closing balance:', error);
       }
     };
-  
-    fetchData();
-  }, [addedby]); 
 
+    fetchDatas();
+  }, [addedby, shiftaccess]);
+  
   const handleCloseShift = () => {
     Swal.fire({
       title: 'Are you sure you want to close the shift?',
@@ -72,7 +117,7 @@ const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) =>
     }).then((result) => {
       if (result.isConfirmed) {
         // axios.post(`${apiConfig.baseURL}/api/pos/closeShift`, { shiftstoken })
-        axios.put(`${apiConfig.baseURL}/api/pos/closeShift?addedby=${encodeURIComponent(addedby)}`)
+        axios.put(`${apiConfig.baseURL}/api/pos/closeShift?shiftaccess=${encodeURIComponent(shiftaccess)}`)
           .then((response) => response.data) 
           .then((data) => {
             // Handle success
@@ -115,41 +160,48 @@ const PosClosingBalance = ({ isModalClosingBalance, setModalClosingBalance }) =>
 
               <div className="container">
                 <div className="row">
-                  {posclosebalance ? ( posclosebalance.map((order) => (
-                      <>
-                        <div key={order.id}>
-                          <h3>Openning Balance Amount :{order.amount}</h3>
+                {posclosebalance.length > 0 ? (
+        posclosebalance.map((order) => (
+          <React.Fragment key={order.id}>
+            <div>
+              <h3>Openning Balance Amount: {order.amount}</h3>
+            </div>
+            <div>
+            <ul>
+          <h3>Food Bill Amount</h3>
+          {order.payments.map((payment) => (
+            <React.Fragment key={payment._id}>
+              {payment.opentoken === shiftaccess && (
+                <li>
+                  Food   Bil number {payment.bilnumber} Amount: {payment.grandTotal}
+                </li>
+              )}
+            </React.Fragment>
+          ))}
+        </ul>
+        <ul>
+          <h3>Cash Drop Amount</h3>
+          {order.cashdrops.map((drop) => (
+            <React.Fragment key={drop._id}>
+              {drop.opentoken === shiftaccess && (
+                <li>
+                  Amount: {drop.amount}
+                </li>
+              )}
+            </React.Fragment>
+          ))}
+        </ul>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-outline-primary" onClick={handleCloseShift}>Shift Close</button>
+              <button type="button" className="btn btn-outline-secondary" onClick={() => setModalClosingBalance(false)}>Close</button>
+            </div>
+          </React.Fragment>
+        ))
+      ) : (
+        <p>No data available</p>
+      )}
 
-                        </div>
-                        <div>
-                          <ul>
-                            <h3>Food Bill Amount</h3>
-                            {order.payments.map((payment) => (
-                              <li key={payment._id}>
-                                Food Bil number {payment.bilnumber} Amount: {payment.grandTotal}
-                              </li>
-                            ))}
-                          </ul>
-
-                          <ul>
-                            <h3>Cash Drop Amount</h3>
-                            {order.cashdrops.map((drop) => (
-                              <li key={drop._id}>
-                                Amount: {drop.amount}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-primary" onClick={handleCloseShift} >Shift Close</button>
-                      <button type="button" className="btn btn-outline-secondary" onClick={() => setModalClosingBalance(false)}>Close</button>
-                      </div>
-                      </>
-
-                    ))
-                  ) : (
-                    <p>No data available</p>
-                  )}
                 </div>
 
               </div>
