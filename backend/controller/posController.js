@@ -213,7 +213,7 @@ const updatePayment = asyncHandler(async (req, res) => {
     if (exists) {
       return res.status(400).json({ error: "ID number already exists" });
     }
-
+    let paystatus = "Paid";
     const cashpayment = new Payment({
       bilnumber: nextIdNumber,
       orderId: id,
@@ -224,6 +224,7 @@ const updatePayment = asyncHandler(async (req, res) => {
       addedby:addedby,
       shiftstoken:shiftstoken,
       opentoken:opentoken,
+      status:paystatus,
     });
 
     const finaldata = await cashpayment.save();
@@ -247,6 +248,7 @@ const updatePayment = asyncHandler(async (req, res) => {
 
     let transtype = "Credit";
     let transmode = "Food Bill";
+    let transtatus = "Paid";
 
     const newEntry = new Transaction({
       accountsid: finaldata._id,
@@ -256,6 +258,7 @@ const updatePayment = asyncHandler(async (req, res) => {
       transtype: transtype,
       shiftstoken:shiftstoken,
       opentoken:opentoken,
+      transtatus:transtatus,
     });
     await newEntry.save();
 
@@ -516,6 +519,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       return res.status(400).json({ error: "ID number already exists" });
     }
     let paymentType = "Cash";
+    let paystatus ="Paid";
 
     const cashpayment = new Payment({
       bilnumber: billIdnumber,
@@ -527,6 +531,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       addedby:addedby,
       shiftstoken:shiftstoken,
       opentoken:opentoken,
+      status:paystatus,
     });
 
     const finaldata = await cashpayment.save();
@@ -550,6 +555,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
 
     let transtype = "Credit";
     let transmode = "Food Bill";
+    let transtatus ="Paid";
 
     const newTransaction = new Transaction({
       accountsid: finaldata._id,
@@ -557,6 +563,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       transmode: transmode,
       amount: grandTotal,
       transtype: transtype,
+      transtatus:transtatus,
       
     });
     await newTransaction.save();
@@ -864,5 +871,6 @@ module.exports = {
   calculateTable,
   getorders
 };
+
 
 

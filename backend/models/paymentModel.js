@@ -28,6 +28,10 @@ var paymentSchema = new mongoose.Schema({
 opentoken:{type:String},
 
     date: { type: Date, default: Date.now },
+    status:{
+      type: String,
+      default: null,
+    },
  
 });
 

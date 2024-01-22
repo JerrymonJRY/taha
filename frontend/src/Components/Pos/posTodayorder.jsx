@@ -13,6 +13,55 @@ const PosTodayOrder =() =>{
     const [kotdata,setkotData] =useState(null);
     const [showkotModal,setShowKotModal] =useState(false);
     const [printOrderId, setPrintOrderId] = useState(null);
+    const [canceldata,setCancelData] =useState(null);
+
+    const [paymentError, setPaymentError] = useState('');
+
+    //Cancel Order 
+    const [email,setEmail] =useState('');
+    const [password,setPassword] =useState('');
+    const [addedby, setuserid] = useState("");
+    const [shiftstoken, setShiftstoken] = useState('');
+    const [shiftAccess, setShiftAccess] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = localStorage.getItem('_id');
+
+        if (!id) {
+          // Handle the case when storeid is not available in localStorage
+          console.error('Store ID not found in localStorage');
+          return;
+        }
+
+        //const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess?storeid=${storeid}`);
+       const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess`, {
+          params: {
+            id: id,
+          },
+        });
+       // console.log(response.data);
+       const shiftdata = response.data;
+
+        // Assuming response.data contains the shiftAccess data
+        setShiftAccess(shiftdata.shiftacess);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+    
+  useEffect(() => {
+    const storeid = localStorage.getItem("_id");
+    const storetoken = localStorage.getItem('shifttoken');
+    setuserid(storeid);
+    setShiftstoken(storetoken)
+  }, []);
+
+    const [isCancelmodel, setCancelModel] = useState(false);
 
     const totalGrandTotal = Array.isArray(posTodayorder)
     ? posTodayorder.reduce((total, order) => {
@@ -88,6 +137,71 @@ const handlePrints = () => {
   }
 };
 
+const handleCancel =(id) =>
+{
+
+ // setCancelModel(true);
+ const url = `${apiConfig.baseURL}/api/pos/getCancel/${id}`;
+  axios.get(url)
+  .then((response) => {
+    setCancelData(response.data);
+    console.log(response.data);
+    setCancelModel(true);
+  })
+  
+  .catch((error) => {
+    console.error('Error fetching data:', error);
+  });
+};
+
+const handleCancelSubmit = (id, order) => {
+  if (!email || !password) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Validation Error',
+      text: 'Please enter both email and password.',
+    });
+    return;
+  }
+
+  var formData = new FormData();
+
+  formData.append("email", email);
+  formData.append("password", password);
+  formData.append('addedby',addedby);
+  formData.append("shiftstoken", shiftstoken);
+  formData.append('opentoken',shiftAccess)
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  };
+
+  axios
+    .put(`${apiConfig.baseURL}/api/pos/updateCancel/${id}`, formData, config) // Corrected URL
+    .then((res) => {
+      console.log(res);
+      Swal.fire({
+        icon: 'success',
+        title: 'Order Cancel Approved!',
+        text: 'Your Cancel Order was successful.',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      }).then(() => {
+        navigate('/pos');
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+
+
 
     return (
         <div className="container">
@@ -109,35 +223,66 @@ const handlePrints = () => {
                     </thead>
                     <tbody>
                        
-  {
-   Array.isArray(posTodayorder) && posTodayorder.length > 0 ? ( 
-   posTodayorder.map((order,key) => (
-    <tr key={order._id}>
-     <td>{key + 1}</td>
-      <td>{order.options}</td>
+                    {
+  Array.isArray(posTodayorder) && posTodayorder.length > 0 ? (
+    posTodayorder.map((order,key) => {
+      const subtotal = order.total;
+      const vat = 5;
+      const vatamounts = (subtotal * vat) / 100;
+      const subtotalAfterVat = subtotal - vatamounts;
 
-      <td>{order.waiter ? order.waiter.waitername : 'N/A'}</td>
-      <td>{order.total}</td>
-      <td>{order.vatAmount}</td>
-    
-      <td>{order.user ? `${order.user.firstname} ${order.user.lastname || ''}` : 'N/A'}</td>
-      <td>{order.grandTotal}</td>
-
-      <td>
-        <a onClick={(e) => handleComplete(order._id)} className="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Print">
-        <i className="mdi mdi-cloud-print-outline"></i>
-        </a>
-        <a onClick={(e) => handlekot(order._id)} className="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Kitchen Order">
-          <i className="mdi mdi-food-variant"></i>
-        </a>
-      </td>
-    </tr>
-  ))
-  ):(
+      return (
+        <tr key={order._id}>
+           <td>{key + 1}</td>
+          <td>{order.options}</td>
+          <td>{order.waiter ? order.waiter.waitername : 'N/A'}</td>
+          <td>{subtotalAfterVat}</td>
+          <td>{vatamounts}</td>
+          <td>{order.user ? `${order.user.firstname} ${order.user.lastname || ''}` : 'N/A'}</td>
+          <td>{order.grandTotal}</td>
+          <td>
+            <a
+              onClick={(e) => handleComplete(order._id)}
+              className="btn btn-primary"
+              style={{ marginRight: '5px' }}
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Print"
+            >
+              <i className="mdi mdi-cloud-print-outline"></i>
+            </a>
+            <a
+              onClick={(e) => handlekot(order._id)}
+              className="btn btn-danger"
+              style={{ marginRight: '5px' }}
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Kitchen Order"
+            >
+              <i className="mdi mdi-food-variant"></i>
+            </a>
+            <a
+              onClick={(e) => handleCancel(order._id)}
+              className="btn btn-danger"
+              style={{ marginRight: '5px' }}
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Cancel Order"
+            >
+              <i className="mdi mdi-food-variant"></i>
+            </a>
+          </td>
+        </tr>
+      );
+    })
+  ) : (
     <tr>
-    <td colSpan="7">No data available</td>
-  </tr>
-  )}
+      <td colSpan="7">No data available</td>
+    </tr>
+  )
+}
+
+
                        
                     </tbody>
                     <tfoot>
@@ -290,6 +435,74 @@ data.map((order) => (
        <div className={`modal-backdrop ${showkotModal ? 'show' : ''}`} style={{ display: showkotModal ? 'block' : 'none' }}></div>
        
        
+     </div>
+
+     <div>
+
+
+
+<div className={`modal ${isCancelmodel ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: isCancelmodel ? 'block' : 'none' }}>
+         <div className="modal-dialog" role="document">
+           <div className="modal-content">
+             <div className="modal-header">
+               <h5 className="modal-title">Cancel Order </h5>
+               <button type="button" className="close" onClick={() => setCancelModel(false)}>
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div className="modal-body">
+               {/* Display the data here */}
+               { canceldata ? (
+ canceldata.map((order ,key) => (
+                <div key={order.id}>
+                  <h5>Order Number: {order.billnumber}</h5>
+                <h5>Order Number: {order.ordernumber}</h5>
+                <h6>Options: {order.options}</h6>
+              
+     
+                 <h6 className="text-right">Total :{order.total}</h6>
+                
+                 <h6 className="text-right">Grand Total :{order.grandTotal}</h6>
+                  
+                 <div className="form-group row">
+                      <label for="exampleInputUsername2" className="col-sm-3 col-form-label">User Name</label>
+                      <div className="col-sm-9">
+                        
+                      <input type="text" className="form-control" name="email" value={email} onChange={(e) => {setEmail(e.target.value)}} placeholder="Enter Email" />
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <label for="exampleInputUsername2" className="col-sm-3 col-form-label">Password</label>
+                      <div className="col-sm-9">
+                      <input type="password" className="form-control" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter Password" />
+
+                      </div>
+                    </div>
+            
+            
+ 
+                 <div className="modal-footer">
+                 <button type="button" onClick={() =>handleCancelSubmit(order._id, order)}  className="btn btn-outline-primary" >Submit Cancel Payment</button> 
+               <button type="button" className="btn btn-outline-secondary" onClick={() => setCancelModel(false)}>Close</button>
+             </div>
+    
+              </div>
+            
+               ))
+               ):(
+                 <p>No data</p>
+               )
+             }
+             
+             </div>
+          
+           </div>
+         </div>
+       </div>
+       <div className={`modal-backdrop ${isCancelmodel ? 'show' : ''}`} style={{ display: isCancelmodel ? 'block' : 'none' }}></div>
+
+
      </div>
         </div>
     )

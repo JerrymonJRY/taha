@@ -23,6 +23,10 @@ var acctransactionSchema = new mongoose.Schema({
   shiftstoken: {
     type: String,
   },
+  transtatus:{
+    type: String,
+    default: null,
+  },
   date: { type: Date, default: Date.now },
 });
 

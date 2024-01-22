@@ -34,12 +34,45 @@ const PosCashDrop = ({ isModalCashDrop, setModalCashDrop }) => {
   const [data, setData] = useState([]);
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
+  const [shiftaccess, setShiftAccess] = useState('');
 
   useEffect(() => {
     const storeid = localStorage.getItem("_id");
     const storetoken = localStorage.getItem('shifttoken');
     setuserid(storeid);
     setShiftstoken(storetoken)
+  }, []);
+
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = localStorage.getItem('_id');
+
+        if (!id) {
+          // Handle the case when storeid is not available in localStorage
+          console.error('Store ID not found in localStorage');
+          return;
+        }
+
+        //const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess?storeid=${storeid}`);
+       const response = await axios.get(`${apiConfig.baseURL}/api/pos/getShiftAccess`, {
+          params: {
+            id: id,
+          },
+        });
+       // console.log(response.data);
+       const shiftdata = response.data;
+
+        // Assuming response.data contains the shiftAccess data
+        setShiftAccess(shiftdata.shiftacess);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
 console.log(shiftstoken);
@@ -52,6 +85,7 @@ console.log(shiftstoken);
     formData.append('notes', notes);
     formData.append('addedby', addedby);
     formData.append('shiftstoken', shiftstoken);
+    formData.append('opentoken',shiftaccess);
 
     const config = {
       headers: {

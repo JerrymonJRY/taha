@@ -1,13 +1,14 @@
 const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var cashdropSchema = new mongoose.Schema({
-  amount: {
-    type: String,
-    required: true,
+var cancelorderSchema = new mongoose.Schema({
+  orderId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Pos",
   },
-  dropout: {
-    type: String,
+  cancelBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
   notes: {
     type: String,
@@ -27,5 +28,4 @@ var cashdropSchema = new mongoose.Schema({
 });
 
 //Export the model
-module.exports = mongoose.model("Cashdrop", cashdropSchema);
-
+module.exports = mongoose.model("Cancelorder", cancelorderSchema);

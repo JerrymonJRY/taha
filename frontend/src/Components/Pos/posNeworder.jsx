@@ -33,6 +33,7 @@ import PosOrderPrint from "./print/posOrderPrint";
 import { useReactToPrint } from 'react-to-print';
 
 import PrintComponent from "./print/posPrint";
+import PosCancelOrder from "./neworder/posCancelOrders";
 const PosNewOrder = () => {
  
 
@@ -157,6 +158,7 @@ const PosNewOrder = () => {
   const [numberofperson, setNumberofPerson] = useState("");
   const [isModalInvoiceReport, setModalInvoiceReport] = useState(false);
   const [isModalClosingBalance,setModalClosingBalance] =useState(false);
+  const [isModalCanelOrders,setModalCancelOrders] =useState(false);
 
   const [activeTabletab, setactiveTableTab] = useState(0);
   const handleSearch = (e) => {
@@ -911,7 +913,8 @@ printWindow.document.write('</body></html>');
     
     const orderDate = new Date(newEntry.date);
     const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
-    printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
+    const formattedTime = `${orderDate.getHours().toString().padStart(2, '0')}:${orderDate.getMinutes().toString().padStart(2, '0')}:${orderDate.getSeconds().toString().padStart(2, '0')}`;
+    printWindow.document.write(`<p>Date and Time: ${formattedDate} ${formattedTime}</p>`);
     
     // Print details of each item in the cart in a table
     if (newEntry.cart && newEntry.cart.length > 0) {
@@ -980,6 +983,11 @@ printWindow.document.write('</body></html>');
   const handleClosingBalance =() =>
   {
     setModalClosingBalance(true);
+  }
+
+  const handleCancelOrders =() =>
+  {
+    setModalCancelOrders(true);
   }
 
 
@@ -1208,6 +1216,20 @@ printWindow.document.write('</body></html>');
           >
             <LiaFileInvoiceSolid className="mr-2" />
             <br /> Closing Balance
+          </a>
+
+          <a
+           onClick={handleCancelOrders}
+            class="nav-link text-center navleft"
+            id="v-pills-invoice-tabs"
+            data-toggle="pill"
+            href="#v-pills-invoices"
+            role="tab"
+            aria-controls="v-pills-invoice"
+            aria-selected="false"
+          >
+            <LiaFileInvoiceSolid className="mr-2" />
+            <br /> Cancel Orders
           </a>
         </div>
       </div>
@@ -1809,6 +1831,14 @@ printWindow.document.write('</body></html>');
       setModalClosingBalance={setModalClosingBalance}
     />
 
+    <PosCancelOrder 
+    isModalCanelOrders={isModalCanelOrders}
+    setModalCancelOrders={setModalCancelOrders}
+    />
+
+
+    
+
 
 
 {/* <PrintComponent ref={componentRef} response={response} /> */}
@@ -1868,5 +1898,7 @@ printWindow.document.write('</body></html>');
 };
 
 export default PosNewOrder;
+
+
 
 
