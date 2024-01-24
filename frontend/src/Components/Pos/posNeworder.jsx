@@ -646,9 +646,10 @@ if (orderData.cart && orderData.cart.length > 0) {
   const subTotals = subtotal - vatAmounts;
 
   printWindow.document.write('</tbody></table>');
-  
-  printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
+
   printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
+  printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
+  
   printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
 }
 
@@ -967,8 +968,9 @@ printWindow.document.write('</body></html>');
   
       printWindow.document.write('</tbody></table>');
       
-      printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
       printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
+      printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
+     
       printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
     }
   

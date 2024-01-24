@@ -20,7 +20,7 @@ const PosEdit =() =>{
       const handleTabClick = (tabName) => {
         setActiveTab(tabName);
       };
-      const imageName = "burps.png";
+      const imageName = "tahalogo.png";
     return (
      
             <div className="container-fluid">

@@ -147,41 +147,74 @@ const updateCancel =asyncHandler(async(req,res) =>{
            // console.log(userRole);
            if (userRole === 'Admin') {
 
-            // const updateResult = await Pos.updateOne(
-            //     { _id: id },
-            //     {
-            //       $set: {
-            //         paymentstatus: paymentstatus,
-                   
-            //       },
-            //     }
-            //   );
+            const updateResult = await Pos.updateOne(
+              { _id: id },
+              {
+                $set: {
+                  paymentstatus: paymentstatus,
+                  cancelBy:userId,
 
-            //   if (updateResult.nModified === 0) {
-            //     return res.status(404).json({ error: "No matching document found" });
-            //   }
-
-             // const findpayment = await Payments.findOne({})
-             const findPayment = await Payments.findOne({ orderId: id});
-             console.log(findPayment);
+                 
+                },
+              }
+            );
 
 
+            if (updateResult.nModified === 0) {
+              return res.status(404).json({ error: "No matching document found" });
+            }
+
+        const findPayment = await Payments.findOne({ orderId: id});
+
+        const paymentId =findPayment._id;
+        console.log(paymentId)
+        let paystatus ="Cancel";
+        const updatePayments = await Payments.updateOne(
+          { orderId: id },
+          {
+            $set: {
+              status: paystatus,
+             
+            },
+          }
+        );
+      const findtrans =await Transaction.findOne({accountsid:paymentId});
+      const transids =findtrans._id;
+      console.log(findtrans._id);
+        let transtatus ="Cancel";
+        const updateTrans = await Transaction.updateOne(
+          { _id: transids },
+          {
+            $set: {
+              transtatus: transtatus,
+             
+            },
+          }
+        );
+
+
+        const newCancelorder = new Cancelorder({
+          orderId: id,
+          cancelBy:userId,
+          addedby: addedby,
+          shiftstoken: shiftstoken,
+          opentoken: opentoken,
+          
+          
+        });
+        await newCancelorder.save();
+
+
+        
+
+        res.json({ updateTrans });
 
 
 
 
             
           
-            //   let orderstatus = "Cancel";
-          
-            //   const updateorderTable = await OrderTable.updateOne(
-            //     { orderId: id },
-            //     {
-            //       $set: {
-            //         orderstatus: orderstatus,
-            //       },
-            //     }
-            //   );
+           
           
 
          
