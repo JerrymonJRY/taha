@@ -109,7 +109,7 @@ const insertPos = asyncHandler(async (req, res) => {
       addedby,
       opentoken,
     } = req.body;
-    console.log(req.body);
+    //console.log(req.body);
 
     const sequence = await Pos.findOne({}).sort("-ordernumber"); // Find the latest ID
 
@@ -297,7 +297,7 @@ const insertPoshold = asyncHandler(async (req, res) => {
       tableId,
       delivery,
     } = req.body;
-    console.log(req.body);
+   // console.log(req.body);
 
     const sequence = await Pos.findOne({}).sort("-ordernumber"); // Find the latest ID
 
@@ -463,7 +463,7 @@ const insertQuickpay = asyncHandler(async (req, res) => {
       shiftstoken,
       opentoken,
     } = req.body;
-    console.log(req.body);
+  //  console.log(req.body);
 
     const sequence = await Pos.findOne({}).sort("-ordernumber"); // Find the latest ID
 

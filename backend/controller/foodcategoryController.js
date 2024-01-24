@@ -151,7 +151,7 @@ const getallFoodcategory = asyncHandler(async (req, res) => {
             // Check if the food name already exists
             if (existingFoodNames.has(foodName)) {
               // Handle duplicate entry (skip or log an error)
-              console.log(`Duplicate entry found for food name: ${foodName}`);
+              //console.log(`Duplicate entry found for food name: ${foodName}`);
               duplicateFoodmenu.push({ foodcategoryname: foodName, reason: 'Duplicate entry' });
               continue;
             }

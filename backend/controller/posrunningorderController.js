@@ -424,7 +424,7 @@ const getedit =asyncHandler(async(req,res) =>{
 const getMerge =asyncHandler(async(req,res) =>{
     const selectedIds = req.body.ids;
   
-    console.log(selectedIds);
+    //console.log(selectedIds);
   
     try {
      
@@ -432,7 +432,7 @@ const getMerge =asyncHandler(async(req,res) =>{
   
       // Respond with the result
       res.json(responseData);
-      console.log(responseData);
+      //console.log(responseData);
     } catch (error) {
       // Handle errors
       console.error('Error:', error);

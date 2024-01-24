@@ -76,7 +76,7 @@ const vertifyUser =asyncHandler(async(req,res,next) =>{
       }
       return res;
     });
-    console.log(user);
+ //   console.log(user);
     if (user == "token expired") {
       return res.send({ status: "error", data: "token expired" });
     }

@@ -38,7 +38,7 @@ const updatePosorder = asyncHandler(async (req, res) => {
       );
 
       // Log and return the updated POS order
-      console.log('POS order updated:', updatedPos);
+      //console.log('POS order updated:', updatedPos);
      // return res.json({ modifiedData: updatedPos });
     }
 
