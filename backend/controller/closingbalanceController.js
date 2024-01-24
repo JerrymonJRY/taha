@@ -4,6 +4,7 @@ const Cashdrop =require('../models/cashdropModel');
 const Balance =require('../models/openningbalanceModel');
 const User =require('../models/userModel');
 const Cancelorder =require('../models/cancelOrderModel');
+const Pos =require('../models/posModels');
 const mongoose = require('mongoose');
 const closingbalance = asyncHandler(async (req, res) => {
   const addedbyParam = req.query.addedby;
@@ -168,9 +169,92 @@ const closingCancelOrder =asyncHandler(async(req,res) =>{
 });
 
 
+const posclosingbalance =asyncHandler(async(req,res) =>{
+
+  const addedbyParam = req.query.addedby;
+  const today = new Date().toISOString().split('T')[0];
+
+  try {
+
+    console.log(addedbyParam);
+
+    if (!mongoose.Types.ObjectId.isValid(addedbyParam)) {
+      return res.status(400).json({ error: 'Invalid ObjectId' });
+    }
+
+
+   
+    const matchCriteria = {
+      addedby: new mongoose.Types.ObjectId(addedbyParam),
+      date: { $gte: new Date(today), $lt: new Date(today + 'T23:59:59.999Z') },
+      status: 'Active' // Match documents with status 'Active'
+      };
+  
+     
+    const posinvoice = await Balance.aggregate([
+        {
+            $match: matchCriteria,
+          },
+
+     
+      {
+        $lookup: {
+          from: 'payments',
+          localField: 'addedby',
+          foreignField: 'addedby',
+          as: 'payments',
+        },
+      },
+      {
+        $unwind: '$payments',
+      },
+
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'addedby',
+          foreignField: '_id',
+          as: 'user',
+        },
+      },
+      {
+        $unwind: '$user',
+      },
+
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'cancelBy',
+          foreignField: '_id',
+          as: 'cancels',
+        },
+      },
+      {
+        $unwind: '$cancels',
+      },
+
+
+      
+
+    ]);
+    res.json(posinvoice);
+   
+
+   
+  } catch (error) {
+    console.error('Error fetching "notpaid" orders:', error);
+  
+  }
+
+
+
+});
 
 
 
 
 
-module.exports ={closingbalance,closeShift,getShiftAccess,closingCancelOrder} 
+
+
+
+module.exports ={closingbalance,closeShift,getShiftAccess,closingCancelOrder,posclosingbalance}

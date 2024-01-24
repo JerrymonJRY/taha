@@ -127,57 +127,54 @@ const PosCancelOrder = ({ isModalCanelOrders, setModalCancelOrders }) => {
           <div className="modal-body">
             <div className="container">
               <div className="row">
-                {posclosebalance.length > 0 ? (
-                  posclosebalance.map((order) => (
-                    <React.Fragment key={order.id}>
-                      <div>
-                        <h3>Opening Balance Amount: {order.amount}</h3>
-                      </div>
-                      <div>
-                        <table className="table table-bordered">
-                          <thead>
-                            <tr>
-                              <th>Si No</th>
-                              <th>Bill Number</th>
-                              <th>Amount</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {order.payments
-                              .filter((payment) => payment.status === "Cancel")
-                              .map((payment, index) => {
-                                const paymentTotal = parseFloat(payment.grandTotal) || 0;
-                                overallTotal += paymentTotal;
+              {posclosebalance.length > 0 ? (
+  posclosebalance.map((order) => (
+    <React.Fragment key={order.id}>
+      <div>
+        <h3>Opening Balance Amount: {order.amount}</h3>
+      </div>
+      <div>
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Si No</th>
+              <th>Bill Number</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {order.payments
+              .filter((payment) => payment.status === "Cancel" && payment.opentoken === shiftaccess)
+              .map((payment, index) => {
+                const paymentTotal = parseFloat(payment.grandTotal) || 0;
+                overallTotal += paymentTotal;
 
-                                return (
-                                  <React.Fragment key={payment._id}>
-                                    {payment.opentoken === shiftaccess && (
-                                      <tr>
-                                        <td>{index + 1}</td>
-                                        <td>{payment.bilnumber}</td>
-                                        <td>{payment.grandTotal}</td>
-                                      </tr>
-                                    )}
-                                  </React.Fragment>
-                                );
-                              })}
-                          </tbody>
-                          <tfoot>
-                            <tr>
-                              <td colSpan="2">Overall Total</td>
-                              <td>{overallTotal}</td>
-                            </tr>
-                          </tfoot>
-                        </table>
-                      </div>
-                      <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => setModalCancelOrders(false)}>Close</button>
-                      </div>
-                    </React.Fragment>
-                  ))
-                ) : (
-                  <p>No data available</p>
-                )}
+                return (
+                  <tr key={payment._id}>
+                    <td>{index + 1}</td>
+                    <td>{payment.bilnumber}</td>
+                    <td>{payment.grandTotal}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan="2">Overall Total</td>
+              <td>{overallTotal}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-outline-secondary" onClick={() => setModalCancelOrders(false)}>Close</button>
+      </div>
+    </React.Fragment>
+  ))
+) : (
+  <p>No data available</p>
+)}
+
               </div>
             </div>
           </div>

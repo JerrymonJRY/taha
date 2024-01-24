@@ -8,38 +8,26 @@ import axios from "axios";
 import { redirect, useNavigate,Link } from "react-router-dom";
 
 
-const ViewPosOrder =() =>{
+const CancelOrders =() =>{
 
-  const [posfood, setPosFood] = useState([]);
+    const [posfood, setPosFood] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/api/pos/getPos')
-  //     .then((response) => response.json())
-  //     .then((data) => setPosFood(data))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
-  useEffect(() => {
-    axios
-      .get(`${apiConfig.baseURL}/api/pos/getPos`)
-      .then((res) => {
-        setPosFood(res.data);
-
-        // Initialize DataTables after data is loaded
-        $(document).ready(function () {
-          $('#example_table').DataTable();
-        });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-
-  const handleDelete =(id) =>
-  {
-  }
-
+    useEffect(() => {
+        axios
+          .get(`${apiConfig.baseURL}/api/pos/cancelorders`)
+          .then((res) => {
+            setPosFood(res.data);
+    
+            // Initialize DataTables after data is loaded
+            $(document).ready(function () {
+              $('#example_table').DataTable();
+            });
+          })
+          .catch((err) => console.log(err));
+      }, []);
 
     return (
+
         <div className="container-scroller">
         <Header />
         <div className="container-fluid page-body-wrapper">
@@ -49,24 +37,26 @@ const ViewPosOrder =() =>{
                   <div className="col-lg-12 grid-margin stretch-card">
                 <div className="card">
                   <div className="card-body">
-                    <h4 className="card-title">Food Order List</h4>
+                    <h4 className="card-title">Cancel Orders</h4>
                     <div className="d-flex justify-content-end">
                     <Link to="/pos" className="btn btn-success">Pos +</Link>
                 </div>
                   
-                <table className="table table-hover  bordered-table" id="example_table" style={{ width: '100%' }}>
+                <table className="table table-hover" id="example_table" style={{ width: '100%' }}>
                       <thead>
                         <tr>
                           <th>Order Number</th>
                             <th>Order Option</th>
-                       
-                          <th>Table Name</th>
-                        <th>Waiter Name</th>
-                     <th>Date and Time</th>
+                         <th>Waiter Name</th>
+                     
                       <th>Subtotal</th>
                       <th>Vat</th>
                       <th>Grand Total</th>
-                      
+                      <th>Date and Time</th>
+                      <th>Billed By</th>
+                      <th>Approved By</th>
+                      <th>Role</th>
+                       
                       
                         </tr>
                       </thead>
@@ -90,14 +80,16 @@ const formattedTime = dateObject.toLocaleTimeString();
     <tr key={order._id}>
       <td>{order.ordernumber}</td>
       <td>{order.options}</td>
+      <td>{order.waiter.waitername}</td>
 
      
-      <td>{order.tableDetails ? order.tableDetails.tablename : 'N/A'}</td>
-      <td>{order.waiterDetails ? order.waiterDetails.waitername : 'N/A'}</td>
-      <td>{formattedDate} {formattedTime}</td>
       <td>{subtotalAfterVat}</td>
       <td>{vatamounts}</td>
       <td>{order.grandTotal}</td>
+      <td>{formattedDate} {formattedTime}</td>
+      <td>{order.user.firstname} {order.user.lastname}</td>
+      <td>{order.cancels.firstname} {order.cancels.lastname}</td>
+      <td>{order.cancels.userrole} </td>
 
     
     </tr> 
@@ -114,7 +106,10 @@ const formattedTime = dateObject.toLocaleTimeString();
             </div>
         </div>
     </div>
-    )
+
+
+    );
+
 }
 
-export default ViewPosOrder;
+export default CancelOrders

@@ -19,8 +19,8 @@ const PosCashDrop = ({ isModalCashDrop, setModalCashDrop }) => {
   };
 
   const drop = [
-    { value: 'Drop', label: 'Drop' },
-    { value: 'Out', label: 'Out' },
+    { value: 'Cashin', label: 'Cash In' },
+    { value: 'Cashout', label: 'Cash Out' },
 
   ];
   const handleCash = (event) => {
@@ -35,6 +35,7 @@ const PosCashDrop = ({ isModalCashDrop, setModalCashDrop }) => {
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
   const [shiftaccess, setShiftAccess] = useState('');
+  const [selectedOptionError, setSelectedOptionError] = useState('');
 
   useEffect(() => {
     const storeid = localStorage.getItem("_id");
@@ -79,6 +80,13 @@ console.log(shiftstoken);
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!dropout) {
+      setSelectedOptionError('Please select a Cash Drop/Out option.');
+      return;
+    } else {
+      setSelectedOptionError('');
+    }
+
     var formData = new FormData();
     formData.append('amount', amount);
     formData.append('dropout', dropout);
@@ -95,12 +103,27 @@ console.log(shiftstoken);
 
     axios
       .post(`${apiConfig.baseURL}/api/cashdrop/cashcreate`, formData, config)
-      .then(res => {
-        console.log(res);
-        setModalCashDrop(false);
-        navigate("/pos");
+      .then((res) => {
+        Swal.fire({
+          title: "Success!",
+          text: "Cash Drop Details",
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+        }).then((result) => {
+          if (result.isConfirmed) {
+           // setModalCashDrop(false);
+            navigate("/pos");
+          
+          } else {
+            setModalCashDrop(false);
+            navigate("/pos");
+          }
+        });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
+     
 
 
   }
@@ -161,7 +184,7 @@ console.log(shiftstoken);
 
                           </tr>
 
-                        ))
+                        ))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                       }
                     </tbody>
                   </table>
@@ -180,7 +203,9 @@ console.log(shiftstoken);
                   <div className="col-md-4">
                     <div class="form-group">
                       <label for="exampleInputUsername1">Cash Drop/Out</label>
-                      <select name="cashdrop" className="form-control" onChange={handleCash} value={dropout}>
+                     
+                      <select name="cashdrop" className={`form-control ${selectedOptionError ? 'is-invalid' : ''}`} onChange={handleCash} value={dropout}>
+                     <option>Select Option</option>
                         {drop.map(option => (
                           <option key={option.value} value={option.value}>
                             {option.label}

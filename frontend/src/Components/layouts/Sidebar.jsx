@@ -139,6 +139,9 @@ const Sidebar = () => {
                 <ul className="nav flex-column sub-menu">
                   {/* <li className="nav-item"> <a className="nav-link" href="">Designation </a></li> */}
                   <li className="nav-item"> <Link className="nav-link" to="/posorder"> Pos Order</Link> </li>
+                  <li className="nav-item"> <Link className="nav-link" to="/paidorders"> Paid Order</Link> </li>
+                  <li className="nav-item"> <Link className="nav-link" to="/cancelorders"> Cancel Order</Link> </li>
+                  <li className="nav-item"> <Link className="nav-link" to="/runningorders"> Running Order</Link> </li>
 
                 </ul>
               </div>
@@ -259,6 +262,9 @@ const Sidebar = () => {
                   <ul className="nav flex-column sub-menu">
                     {/* <li className="nav-item"> <a className="nav-link" href="">Designation </a></li> */}
                     <li className="nav-item"> <Link className="nav-link" to="/posorder"> Pos Order</Link> </li>
+                    <li className="nav-item"> <Link className="nav-link" to="/paidorders"> Paid Order</Link> </li>
+                    <li className="nav-item"> <Link className="nav-link" to="/cancelorders"> Cancel Order</Link> </li>
+                    <li className="nav-item"> <Link className="nav-link" to="/runningorders"> Running Order</Link> </li>
 
                   </ul>
                 </div>
@@ -297,7 +303,7 @@ const Sidebar = () => {
                     <li className="nav-item"> <Link className=" nav-link" to="/viewExpense">Expense Category</Link></li>
 
                     <li className="nav-item"><Link className=" nav-link" to="/viewTable"> Table</Link> </li>
-                    {/* <li className="nav-item"><Link className=" nav-link" to="/viewuser"> User</Link> </li> */}
+                    <li className="nav-item"><Link className=" nav-link" to="/viewuser"> User</Link> </li>
                     <li className="nav-item"><Link className=" nav-link" to="/viewVat"> Vat</Link> </li>
 
                   </ul>
@@ -379,6 +385,9 @@ const Sidebar = () => {
                   <ul className="nav flex-column sub-menu">
                     {/* <li className="nav-item"> <a className="nav-link" href="">Designation </a></li> */}
                     <li className="nav-item"> <Link className="nav-link" to="/posorder"> Pos Order</Link> </li>
+                    <li className="nav-item"> <Link className="nav-link" to="/paidorders"> Paid Order</Link> </li>
+                    <li className="nav-item"> <Link className="nav-link" to="/cancelorders"> Cancel Order</Link> </li>
+                    <li className="nav-item"> <Link className="nav-link" to="/runningorders"> Running Order</Link> </li>
 
                   </ul>
                 </div>

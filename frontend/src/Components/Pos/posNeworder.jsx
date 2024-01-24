@@ -67,14 +67,6 @@ const PosNewOrder = () => {
   }, []);
 
 
- 
-
-  
-
-  
-
-  //const [shiftAccess, setShiftAccess] = useState('');
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -161,6 +153,7 @@ const PosNewOrder = () => {
   const [isModalCanelOrders,setModalCancelOrders] =useState(false);
 
   const [activeTabletab, setactiveTableTab] = useState(0);
+  const [loading, setLoading] = useState(false);
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -465,108 +458,113 @@ const PosNewOrder = () => {
   const [response, setResponse] = useState(null);
   const handlePlaceorder = async (event) => {
     event.preventDefault();
-    if (!selectWaiter) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Waiter is Empty',
-        text: 'Please add items to your cart before placing an order.',
-      });
-    } else if (cart.length < 1) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Cart is empty',
-        text: 'Please add items to your cart before placing an order.',
-      });
-    } else if (!options) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Options not selected',
-        text: 'Please select options before placing an order.',
-      });
-    } else {
-      // setPlaceOrder is not used in the provided code. If not needed, you can remove this line.
-      setPlaceOrder({
-        option: options,
-        waiter: selectWaiter,
-        customer: selectCustomer,
-        table: selectTable,
-        cart: cart,
-        total: totalAmount,
-        vat: vatAmount,
-        grandTotal: grandTotal,
-        delivery: selectDelivery,
-        numberofperson: numberofperson,
-      });
-  
-      var posData = new FormData();
-  
-      if (selectCustomer && selectCustomer._id) {
-        posData.append('customers', selectCustomer._id);
-      }
-  
-      if (selectDelivery && selectDelivery._id) {
-        posData.append('delivery', selectDelivery._id);
-      }
-      posData.append('options', options);
-      posData.append('grandTotal', grandTotal);
-  
-      for (let i = 0; i < cart.length; i++) {
-        posData.append(`cart[${i}].foodmenuId`, cart[i]._id);
-        posData.append(`cart[${i}].foodmenuname`, cart[i].foodmenuname);
-        posData.append(`cart[${i}].salesprice`, cart[i].salesprice);
-        posData.append(`cart[${i}].quantity`, cart[i].quantity);
-      }
-      posData.append('vatAmount', vatAmount);
-      posData.append('total', totalAmount);
-      posData.append('foodoption', options);
-      posData.append('addedby', addedby);
-      posData.append('opentoken',shiftAccess);
-      if (selectTable && selectTable._id) {
-        posData.append('tableId', selectTable._id);
-        posData.append('numberofperson', numberofperson);
-      }
-      if (selectWaiter && selectWaiter._id) {
-        posData.append('waiterId', selectWaiter._id);
-      }
-     
-    //  posData.append('shiftstoken','shiftstoken');
-  
-      const config = { headers: { 'Content-Type': 'application/json' } };
-    //  let response;
-      try {
-        // Your existing code...
-  
-        const response = await axios.post(`${apiConfig.baseURL}/api/pos/createpos`, posData, config);
-  
-        setResponse(response);
-        Swal.fire({
-          title: 'Success!',
-          text: 'Do you want to print the order?',
-          icon: 'success',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, print',
-          cancelButtonText: 'No',
-        }).then((result) => {
-          if (result.isConfirmed) {
 
-            printOrderDetails(response.data);
-            setCart([]);
-            setTabEnabled({
-              dineIn: true,
-            });
-          } else {
-            setCart([]);
-            setTabEnabled({
-              dineIn: true,
-            });
-          }
+    setLoading(true);
+
+    setTimeout(() => {
+      if (!selectWaiter) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Waiter is Empty',
+          text: 'Please add items to your cart before placing an order.',
         });
-      } catch (error) {
-        console.error('Error placing order:', error);
-        // Handle error appropriately (e.g., show an error message to the user)
-      }
-    }
-  };
+      } else if (cart.length < 1) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Cart is empty',
+          text: 'Please add items to your cart before placing an order.',
+        });
+      } else if (!options) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Options not selected',
+          text: 'Please select options before placing an order.',
+        });}
+        else
+        {
+          setPlaceOrder({
+            option: options,
+            waiter: selectWaiter,
+            customer: selectCustomer,
+            table: selectTable,
+            cart: cart,
+            total: totalAmount,
+            vat: vatAmount,
+            grandTotal: grandTotal,
+            delivery: selectDelivery,
+            numberofperson: numberofperson,
+          });
+
+          var posData = new FormData();
+          if (selectCustomer && selectCustomer._id) { posData.append('customers', selectCustomer._id); }
+          if (selectDelivery && selectDelivery._id) { posData.append("delivery", selectDelivery._id);  }
+          posData.append('options', options);
+          posData.append('grandTotal', grandTotal);
+          for (let i = 0; i < cart.length; i++) {
+            posData.append(`cart[${i}].foodmenuId`, cart[i]._id);
+            posData.append(`cart[${i}].foodmenuname`, cart[i].foodmenuname);
+            posData.append(`cart[${i}].salesprice`, cart[i].salesprice);
+            posData.append(`cart[${i}].quantity`, cart[i].quantity);
+          }
+          posData.append('vatAmount', vatAmount);
+          posData.append('total', totalAmount);
+          posData.append('foodoption', options);
+          posData.append('addedby', addedby);
+          posData.append('opentoken',shiftAccess);
+          if (selectTable && selectTable._id) {
+            posData.append('tableId', selectTable._id);
+            posData.append('numberofperson', numberofperson);
+          }
+          if (selectWaiter && selectWaiter._id) {
+            posData.append('waiterId', selectWaiter._id);
+          }
+
+          const config = { headers: { 'Content-Type': 'application/json' } };
+
+          axios
+          .post(`${apiConfig.baseURL}/api/pos/createpos`, posData, config)
+          .then((res) => {
+            // Display success message and prompt for printing
+            Swal.fire({
+              title: 'Success!',
+              text: 'Do you want to print the order?',
+              icon: 'success',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, print',
+              cancelButtonText: 'No',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // printQuickDetails(res.data.newEntry, res.data.updatedDocuments);
+                printOrderDetails(res.data);
+                setCart([]);
+                setTabEnabled({
+                  dineIn: true,
+                });
+              } else {
+             window.location.reload();
+              }
+            });
+          })
+          .catch((err) => {
+            console.error('Quick pay error:', err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Quick Pay Error',
+              text: 'An error occurred during quick pay.',
+            });
+          })
+          .finally(() => {
+            // Hide loading state regardless of success or error
+            setLoading(false);
+          });
+
+      
+        }
+
+    }, 1000);
+
+
+  }
 
   const imagePaths = "/assets/images/pos/taha.png";
 
@@ -774,99 +772,115 @@ printWindow.document.write('</body></html>');
     }
   };
 
+
+
+
+
   const handleQuickPay = (event) => {
     event.preventDefault();
-    if (cart.length < 1) {
-      Swal.fire({
-        icon: "error",
-        title: "Cart is empty",
-        text: "Please add items to your cart before placing an order.",
-      });
-    } else if (!options) {
-      Swal.fire({
-        icon: "error",
-        title: "Options not selected",
-        text: "Please select options before placing an order.",
-      });
-    } else if (options.toLowerCase() === "dine in") {
-      Swal.fire({
-        icon: "error",
-        title: "Dine-In Not Allowed",
-        text: "Quick pay is not allowed for dine-in orders.",
-      });
-    } else {
-      setPlaceOrder({
-        option: options,
-        waiter: selectWaiter,
-        customer: selectCustomer,
-        table: selectTable,
-        cart: cart,
-        total: totalAmount,
-        vat: vatAmount,
-        grandTotal: grandTotal,
-        delivery: selectDelivery,
-        numberofperson: numberofperson,
-      });
-     // console.log(options);
+    setLoading(true);
+  
+    // Introduce a delay before executing the main logic
+    setTimeout(() => {
+      if (cart.length < 1) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Cart is empty',
+          text: 'Please add items to your cart before placing an order.',
+        });
+      } else if (!options) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Options not selected',
+          text: 'Please select options before placing an order.',
+        });
+      } else if (options.toLowerCase() === 'dine in') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Dine-In Not Allowed',
+          text: 'Quick pay is not allowed for dine-in orders.',
+        });
+      } else {
+        
+        setPlaceOrder({
+          option: options,
+          waiter: selectWaiter,
+          customer: selectCustomer,
+          table: selectTable,
+          cart: cart,
+          total: totalAmount,
+          vat: vatAmount,
+          grandTotal: grandTotal,
+          delivery: selectDelivery,
+          numberofperson: numberofperson,
+        });
+       // console.log(options);
+  
+        var posData = new FormData();
+  
+        if (selectCustomer && selectCustomer._id) {
+          posData.append("customers", selectCustomer._id);
+        }
+        if (selectDelivery && selectDelivery._id) {
+          posData.append("delivery", selectDelivery._id);
+        }
+        posData.append("options", options);
+        posData.append("grandTotal", grandTotal);
+        for (let i = 0; i < cart.length; i++) {
+          posData.append(`cart[${i}].foodmenuId`, cart[i]._id);
+          posData.append(`cart[${i}].foodmenuname`, cart[i].foodmenuname);
+          posData.append(`cart[${i}].salesprice`, cart[i].salesprice);
+          posData.append(`cart[${i}].quantity`, cart[i].quantity);
+        }
+        posData.append("vatAmount", vatAmount);
+        posData.append("total", totalAmount);
+        posData.append("foodoption", options);
+        if (selectTable && selectTable._id) {
+          posData.append("tableId", selectTable._id);
+        }
+        if (selectWaiter && selectWaiter._id) {
+          posData.append("waiterId", selectWaiter._id);
+        }
+        posData.append('addedby', addedby);
+        posData.append('shiftstoken','shiftstoken');
+        posData.append('opentoken',shiftAccess);
+        const config = { headers: { "Content-Type": "application/json" } };
 
-      var posData = new FormData();
-
-      if (selectCustomer && selectCustomer._id) {
-        posData.append("customers", selectCustomer._id);
-      }
-      if (selectDelivery && selectDelivery._id) {
-        posData.append("delivery", selectDelivery._id);
-      }
-      posData.append("options", options);
-      posData.append("grandTotal", grandTotal);
-      for (let i = 0; i < cart.length; i++) {
-        posData.append(`cart[${i}].foodmenuId`, cart[i]._id);
-        posData.append(`cart[${i}].foodmenuname`, cart[i].foodmenuname);
-        posData.append(`cart[${i}].salesprice`, cart[i].salesprice);
-        posData.append(`cart[${i}].quantity`, cart[i].quantity);
-      }
-      posData.append("vatAmount", vatAmount);
-      posData.append("total", totalAmount);
-      posData.append("foodoption", options);
-      if (selectTable && selectTable._id) {
-        posData.append("tableId", selectTable._id);
-      }
-      if (selectWaiter && selectWaiter._id) {
-        posData.append("waiterId", selectWaiter._id);
-      }
-      posData.append('addedby', addedby);
-      posData.append('shiftstoken','shiftstoken');
-      posData.append('opentoken',shiftAccess);
-      const config = { headers: { "Content-Type": "application/json" } };
-      axios
-        .post(`${apiConfig.baseURL}/api/pos/createQuickpay`, posData, config)
-        .then((res) => {
-          Swal.fire({
-            title: "Success!",
-            text: "Do you want to print the order?",
-            icon: "success",
-            showCancelButton: true,
-            confirmButtonText: "Yes, print",
-            cancelButtonText: "No",
-          }).then((result) => {
-            if (result.isConfirmed) {
-
-
-              handlequickPrint({
-                data: res.data,// Pass any data you want to the PrintComponent
-              });
-            
-              
-            printQuickDetails(res.data.newEntry, res.data.updatedDocuments);
-           
-            } else {
-              setRefresh((prevRefresh) => !prevRefresh);
-            }
+        axios
+          .post(`${apiConfig.baseURL}/api/pos/createQuickpay`, posData, config)
+          .then((res) => {
+            // Display success message and prompt for printing
+            Swal.fire({
+              title: 'Success!',
+              text: 'Do you want to print the order?',
+              icon: 'success',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, print',
+              cancelButtonText: 'No',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                printQuickDetails(res.data.newEntry, res.data.updatedDocuments);
+              } else {
+             window.location.reload();
+              }
+            });
+          })
+          .catch((err) => {
+            console.error('Quick pay error:', err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Quick Pay Error',
+              text: 'An error occurred during quick pay.',
+            });
+          })
+          .finally(() => {
+            // Hide loading state regardless of success or error
+            setLoading(false);
           });
-        })
-        .catch((err) => console.log(err));
-    }
+      }
+    }, 1000); // You can adjust the delay time (in milliseconds) as needed
   };
+  
 
   const printComponentRef = useRef();
   const handlequickPrint = useReactToPrint({
@@ -1088,14 +1102,16 @@ printWindow.document.write('</body></html>');
               </button>
             </div>
             <div className="col-lg-6 pl-0">
-              <button
-                type="button"
-                onClick={handlePlaceorder}
-                className="btn btn-warning w-100 mb-2 p-2"
-              >
-                Place Order
-              </button>
-            </div>
+  <button
+    type="button"
+    onClick={handlePlaceorder}
+    className="btn btn-warning w-100 mb-2 p-2"
+    disabled={loading} // Disable the button when loading
+  >
+    {loading ? 'Placing Order...' : 'Place Order'}
+  </button>
+</div>
+
             <div className="col-lg-6">
               <button
                 type="button"
@@ -1106,14 +1122,15 @@ printWindow.document.write('</body></html>');
               </button>
             </div>
             <div className="col-lg-6 pl-0">
-              <button
-                type="button"
-                onClick={handleQuickPay}
-                className="btn btn-success w-100 mb-2 p-2"
-              >
-                Quick Pay
-              </button>
-            </div>
+  <button
+    type="button"
+    onClick={handleQuickPay}
+    className="btn btn-success w-100 mb-2 p-2"
+    disabled={loading} // Disable the button when loading
+  >
+    {loading ? 'Loading...' : 'Quick Pay'}
+  </button>
+</div>
           </div>
         </div>
       </div>
@@ -1898,6 +1915,7 @@ printWindow.document.write('</body></html>');
 };
 
 export default PosNewOrder;
+
 
 
 

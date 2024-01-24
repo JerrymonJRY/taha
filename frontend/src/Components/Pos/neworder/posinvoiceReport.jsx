@@ -63,12 +63,37 @@ const PosInvoiceReport = ({isModalInvoiceReport,setModalInvoiceReport}) =>{
         selector: "date",
         sortable: true,
         cell: (row) => new Date(row.date).toLocaleDateString(),
+    },
+   
+   
+   
+    { 
+        name: "Subtotal", 
+        selector: "subtotalAfterVat", 
+        sortable: true, 
+        cell: (row) => {
+            const subtotal = row.total; // Assuming the 'total' property exists in your row object
+            const vat = 5;
+            const vatamounts = (subtotal * vat) / 100;
+            return subtotal - vatamounts;
+        },
+    },
+    { 
+      name: "Vat Amount", 
+      selector: "subtotalAfterVat", 
+      sortable: true, 
+      cell: (row) => {
+          const subtotal = row.total; // Assuming the 'total' property exists in your row object
+          const vat = 5;
+          const vatamounts = (subtotal * vat) / 100;
+          return vatamounts;
       },
-    { name: "Total", selector: "total", sortable: true },
-    { name: "Vat Amount", selector: "vatAmount", sortable: true },
-    { name: "Added By", selector: "user.firstname", sortable: true },
+
+     },
     { name: "Grand Total", selector: "grandTotal", sortable: true },
-  ];
+    { name: "Added By", selector: "user.firstname", sortable: true },
+];
+
 
   const filteredData = posTodaydelivery.map((order, index) => ({
     ...order,

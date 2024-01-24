@@ -19,11 +19,11 @@ const {getposCategory,
 } =require('../controller/posController');
 
 const {updatePosorder} =require('../controller/posUpdateController')
-const {getAllPos,completePaymeny} =require('../controller/posneworderController')
+const {getAllPos,completePaymeny,paidorders,cancelorders,runningorders} =require('../controller/posneworderController')
 const {runningOrder,getKot,getedit,getSplit,getMerge} =require('../controller/posrunningorderController')
 const {todayDelivery} =require('../controller/posdeliveryController')
 const {posinvoiceReport} =require('../controller/posinvoiceReportController')
-const {closingbalance,closeShift,getShiftAccess,closingCancelOrder} = require('../controller/closingbalanceController');
+const {closingbalance,closeShift,getShiftAccess,closingCancelOrder,posclosingbalance} = require('../controller/closingbalanceController');
 const {getCancel,updateCancel} =require('../controller/cancelOrderController');
 
 router.get('/poscategory',getposCategory);
@@ -57,6 +57,10 @@ router.get('/getShiftAccess',getShiftAccess);
 router.get('/getCancel/:id',getCancel);
 router.put('/updateCancel/:id',updateCancel);
 router.get('/closingCancelOrder',closingCancelOrder);
+router.get('/paidorders',paidorders);
+router.get('/cancelorders',cancelorders);
+router.get('/runningorders',runningorders);
+router.get('/posclosingbalance',posclosingbalance);
 
 
 

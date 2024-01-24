@@ -105,28 +105,55 @@ const createBalance = asyncHandler(async (req, res) => {
 });
 
 
+// const checkBalance = asyncHandler(async (req, res) => {
+//     const today = new Date().toISOString().split('T')[0];
+  
+//     try {
+//       // const result = await Balance.findOne({
+//       //   date: { $gte: new Date(today), $lt: new Date(today + 'T23:59:59.999Z') },
+//       // });
+//       const result = await Balance.findOne({
+//         date: { $gte: new Date(today), $lt: new Date(today + 'T23:59:59.999Z') },
+//         status: "Active",
+//       });
+  
+//       if (result) {
+//         res.json({ hasOpeningBalance: true, openingBalance: result });
+//       } else {
+//         res.json({ hasOpeningBalance: false });
+//       }
+//     } catch (error) {
+//       console.error('Error checking opening balance:', error);
+//       res.status(500).json({ error: 'Internal Server Error' });
+//     }
+//   });
+
 const checkBalance = asyncHandler(async (req, res) => {
-    const today = new Date().toISOString().split('T')[0];
-  
-    try {
-      // const result = await Balance.findOne({
-      //   date: { $gte: new Date(today), $lt: new Date(today + 'T23:59:59.999Z') },
-      // });
-      const result = await Balance.findOne({
-        date: { $gte: new Date(today), $lt: new Date(today + 'T23:59:59.999Z') },
-        status: "Active",
-      });
-  
-      if (result) {
-        res.json({ hasOpeningBalance: true, openingBalance: result });
-      } else {
-        res.json({ hasOpeningBalance: false });
-      }
-    } catch (error) {
-      console.error('Error checking opening balance:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set the time to 00:00:00.000 (midnight)
+
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1); // Move to the next day
+  tomorrow.setHours(tomorrow.getHours() + 1); // Add one hour
+
+  try {
+    const result = await Balance.findOne({
+      date: { $gte: today, $lt: tomorrow },
+      status: "Active",
+    });
+
+    if (result) {
+      res.json({ hasOpeningBalance: true, openingBalance: result });
+    } else {
+      res.json({ hasOpeningBalance: false });
     }
-  });
+  } catch (error) {
+    console.error('Error checking opening balance:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 
 module.exports={createBalance,checkBalance}

@@ -61,6 +61,12 @@ ordernumber:{type:String},
   },
   opentoken:{type:String},
   billnumber:{type:String,default:null,},
+  cancelBy:{
+    type: mongoose.Schema.ObjectId,
+       ref: "User",
+       default: null
+  },
+
 
 
 
