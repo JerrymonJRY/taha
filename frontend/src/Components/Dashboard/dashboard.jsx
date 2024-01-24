@@ -23,6 +23,7 @@ const cardBodyStyle = {
 const [todayordercount, setTodayorderCount] = useState(0);
 const [totalordercount, setTotalorderCount] = useState(0);
 const [todaynotpaidcount,setNotpaidCount] =useState(0);
+const [toddaypaid, setTodaypaid] = useState([]);
 
 useEffect(() => {
  fetch(`${apiConfig.baseURL}/api/dashboard/todayorder`)
@@ -39,14 +40,22 @@ useEffect(() => {
  }, []);
 
  useEffect(() => {
-  fetch(`${apiConfig.baseURL}/api/dashboard/todaynotpaidsales`)
-     .then((response) => response.json())
-     .then((data) => setNotpaidCount(data.count))
-     .catch((error) => console.error(error));
- }, []);
+  axios
+    .get(`${apiConfig.baseURL}/api/pos/paidorders`)
+    .then((res) => {
+      setTodaypaid(res.data);
+    })
+    .catch((err) => console.log(err));
+}, []);
 
+const calculateOverallTotal = (orders) => {
+  return orders.reduce((total, order) => {
+    const paymentTotal = parseFloat(order.grandTotal) || 0;
+    return total + paymentTotal;
+  }, 0);
+};
 
-
+console.log(todaynotpaidcount);
 
     return (
         <div className="container-scroller">
@@ -82,16 +91,32 @@ useEffect(() => {
                 </div>
               </div>
               <div className="col-md-3 stretch-card grid-margin">
-                <div className="card bg-gradient-info card-img-holder text-white">
-                  <div className="card-body">
-                    <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
-                    <h4 className="font-weight-normal mb-3">Today Sales <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                    </h4>
-                    <h2 className="mb-5">{todaynotpaidcount}</h2>
-                   
-                  </div>
-                </div>
-              </div>
+  <div className="card bg-gradient-info card-img-holder text-white">
+    <div className="card-body">
+      <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
+      <h4 className="font-weight-normal mb-3">
+        Today Sales <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+      </h4>
+
+      {toddaypaid.length > 0 ? (
+        <>
+          {toddaypaid.map((order) => (
+            <React.Fragment key={order.id}>
+              {/* Render additional content for each order if needed */}
+              <p>{order.someAdditionalInfo}</p>
+            </React.Fragment>
+          ))}
+          <h2 className="mb-5">{calculateOverallTotal(toddaypaid)}</h2>
+        </>
+      ) : (
+        <p>No data available</p>
+      )}
+    </div>
+  </div>
+</div>
+
+
+
               <div className="col-md-3 stretch-card grid-margin">
                 <div className="card bg-gradient-success card-img-holder text-white">
                   <div className="card-body">
