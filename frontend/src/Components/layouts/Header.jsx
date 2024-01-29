@@ -1,7 +1,9 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
-
+import apiConfig from '../layouts/base_url';
+import axios from "axios";
+import Swal from 'sweetalert2';
 const Header =() =>{
 
   const navigate  = useNavigate();
@@ -11,38 +13,76 @@ const Header =() =>{
    
   };
 
-  // const logOut = (e) => {
-  
-  //   axios.get(`${apiConfig.baseURL}/api/user/logout`)
-  //   .then((response) => {
-  //     navigate('/')
-  //   })
-    
-   
-  // };
-
-
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [shiftstokens, setShiftsTokens] = useState('');
+  const [uesrId,setUserId] =useState('');
+  const [isPasswordmodel, setPasswordModel] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
   useEffect(() => {
 
 const storedFirstname = localStorage.getItem('firstname');
+const storeid = localStorage.getItem("_id");
 const storedLastname = localStorage.getItem('lastname');
 const storedtoken = localStorage.getItem('shifttoken');
+const userRole  =localStorage.getItem('userrole');
+
+//console.log(userRole);
 
 setFirstname(storedFirstname);
 setLastname(storedLastname);
 setShiftsTokens(storedtoken);
+setUserId(storeid)
   }, []);
 
+
+  const handlePassword =() =>{
+
+    
+    setPasswordModel(true);
+
+  }
+
+  const id = localStorage.getItem("_id");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await axios.post(`${apiConfig.baseURL}/api/user/changepassword`, {
+            userId: id, 
+            currentPassword,
+            newPassword,
+        });
+
+        // Display success message
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: response.data.message, // Password updated successfully
+        });
+
+        setPasswordModel(false);
+    } catch (error) {
+        // Display error message
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: error.response.data.message, // Error message from the server
+        });
+    }
+};
+
+
   const fullName = `${firstname} ${lastname}`;
-  const imageName = "tahalogo.png";
+  const imageName = "burps.png";
   const faceimage ="face1.jpg"
 
-  console.log(shiftstokens);
+
 
     return (
+      <>
         <nav className="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
           <Link className="navbar-brand brand-logo" to="/dashboard"><img src={`/assets/images/pos/${imageName}`} className="img-fluid" alt="Burps Logo" /></Link>
@@ -75,122 +115,89 @@ setShiftsTokens(storedtoken);
                 </div>
               </a>
               <div className="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a className="dropdown-item" href="#">
-                  <i className="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+                <a className="dropdown-item"   onClick={(e) => handlePassword(id)}>
+                  <i className="mdi mdi-cached me-2 text-success"></i> Change Password </a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" onClick={logOut}>
                   <i className="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
             </li>
-            <li className="nav-item d-none d-lg-block full-screen-link">
-              <a className="nav-link">
-                <i className="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <i className="mdi mdi-email-outline"></i>
-                <span className="count-symbol bg-warning"></span>
-              </a>
-              <div className="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                <h6 className="p-3 mb-0">Messages</h6>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item">
-                  <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face4.jpg" alt="image" className="profile-pic" />
-                  </div>
-                  <div className="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 className="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                    <p className="text-gray mb-0"> 1 Minutes ago </p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item">
-                  <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face2.jpg" alt="image" className="profile-pic" />
-                  </div>
-                  <div className="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 className="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                    <p className="text-gray mb-0"> 15 Minutes ago </p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item">
-                  <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face3.jpg" alt="image" className="profile-pic" />
-                  </div>
-                  <div className="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 className="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                    <p className="text-gray mb-0"> 18 Minutes ago </p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <h6 className="p-3 mb-0 text-center">4 new messages</h6>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                <i className="mdi mdi-bell-outline"></i>
-                <span className="count-symbol bg-danger"></span>
-              </a>
-              <div className="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <h6 className="p-3 mb-0">Notifications</h6>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-success">
-                      <i className="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 className="preview-subject font-weight-normal mb-1">Event today</h6>
-                    <p className="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-warning">
-                      <i className="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 className="preview-subject font-weight-normal mb-1">Settings</h6>
-                    <p className="text-gray ellipsis mb-0"> Update dashboard </p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-info">
-                      <i className="mdi mdi-link-variant"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 className="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                    <p className="text-gray ellipsis mb-0"> New admin wow! </p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <h6 className="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
+            
+   
+     
             <li className="nav-item nav-logout d-none d-lg-block">
               <a className="nav-link"  onClick={logOut}>
                 <i className="mdi mdi-power"></i>
               </a>
             </li>
-            <li className="nav-item nav-settings d-none d-lg-block">
-              <a className="nav-link" href="#">
-                <i className="mdi mdi-format-line-spacing"></i>
+
+            <li className="nav-item nav-logout d-none d-lg-block">
+              <a className="nav-link"  >
+               
               </a>
             </li>
+           
           </ul>
           <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span className="mdi mdi-menu"></span>
           </button>
         </div>
       </nav>
+
+
+      <div>
+
+
+
+<div className={`modal ${isPasswordmodel ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: isPasswordmodel ? 'block' : 'none' }}>
+         <div className="modal-dialog" role="document">
+           <div className="modal-content">
+             <div className="modal-header">
+               <h5 className="modal-title">Change Password </h5>
+               <button type="button" className="close" onClick={() => setPasswordModel(false)}>
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div className="modal-body">
+             
+             <form onSubmit={handleSubmit}>
+
+                
+             <div className="form-group row">
+                      <label for="exampleInputUsername2" className="col-sm-3 col-form-label">User Name</label>
+                      <div className="col-sm-9">
+                        
+                      <input type="text" className="form-control" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)}  placeholder="Enter Old Password" />
+                      </div>
+                    </div>
+
+                    <div className="form-group row">
+                      <label for="exampleInputUsername2" className="col-sm-3 col-form-label">Password</label>
+                      <div className="col-sm-9">
+                      <input type="password" className="form-control"  value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter New Password" />
+
+                      </div>
+                      </div>
+
+
+          
+                      <button type="submit"   className="btn btn-outline-primary" >Change Password</button> 
+           
+            
+        </form>
+  
+             
+             </div>
+          
+           </div>
+         </div>
+       </div>
+       <div className={`modal-backdrop ${isPasswordmodel ? 'show' : ''}`} style={{ display: isPasswordmodel ? 'block' : 'none' }}></div>
+
+
+     </div>
+
+      </>
     );
 }
 

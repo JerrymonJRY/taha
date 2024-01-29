@@ -11,7 +11,7 @@ const closingbalance = asyncHandler(async (req, res) => {
   const today = new Date().toISOString().split('T')[0];
   try {
     // Log the parameter value if needed
-   // console.log(addedbyParam);
+    console.log(addedbyParam);
 
     if (!mongoose.Types.ObjectId.isValid(addedbyParam)) {
       return res.status(400).json({ error: 'Invalid ObjectId' });
@@ -44,7 +44,7 @@ const closingbalance = asyncHandler(async (req, res) => {
       
     ]);
 
-    //console.log(result);
+    console.log(result);
     res.json(result);
   } catch (error) {
     console.error(error); // Log the error for debugging purposes
@@ -63,7 +63,7 @@ const closeShift = asyncHandler(async (req, res) => {
     //   return res.status(400).json({ error: 'Invalid ObjectId' });
     // }
 
-    //console.log('Shift Access:', shiftAccessParam);
+    console.log('Shift Access:', shiftAccessParam);
 
     // Update the opening balance status to 'Closed'
     const updatedOpeningBalance = await Balance.findOneAndUpdate(
@@ -120,7 +120,7 @@ const closingCancelOrder =asyncHandler(async(req,res) =>{
   const today = new Date().toISOString().split('T')[0];
   try {
     // Log the parameter value if needed
-   // console.log(addedbyParam);
+    console.log(addedbyParam);
 
     if (!mongoose.Types.ObjectId.isValid(addedbyParam)) {
       return res.status(400).json({ error: 'Invalid ObjectId' });
@@ -158,7 +158,7 @@ const closingCancelOrder =asyncHandler(async(req,res) =>{
       
     ]);
 
-   // console.log(result);
+    console.log(result);
     res.json(result);
   } catch (error) {
     console.error(error); // Log the error for debugging purposes
@@ -176,7 +176,7 @@ const posclosingbalance =asyncHandler(async(req,res) =>{
 
   try {
 
- //   console.log(addedbyParam);
+    console.log(addedbyParam);
 
     if (!mongoose.Types.ObjectId.isValid(addedbyParam)) {
       return res.status(400).json({ error: 'Invalid ObjectId' });

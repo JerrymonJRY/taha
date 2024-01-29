@@ -167,7 +167,7 @@ const updateCancel =asyncHandler(async(req,res) =>{
         const findPayment = await Payments.findOne({ orderId: id});
 
         const paymentId =findPayment._id;
-     ///   console.log(paymentId)
+        console.log(paymentId)
         let paystatus ="Cancel";
         const updatePayments = await Payments.updateOne(
           { orderId: id },
@@ -180,7 +180,7 @@ const updateCancel =asyncHandler(async(req,res) =>{
         );
       const findtrans =await Transaction.findOne({accountsid:paymentId});
       const transids =findtrans._id;
-     /// console.log(findtrans._id);
+      console.log(findtrans._id);
         let transtatus ="Cancel";
         const updateTrans = await Transaction.updateOne(
           { _id: transids },
@@ -208,14 +208,7 @@ const updateCancel =asyncHandler(async(req,res) =>{
         
 
         res.json({ updateTrans });
-
-
-
-
-            
-          
-           
-          
+     
 
          
             
@@ -241,7 +234,7 @@ const updateCancel =asyncHandler(async(req,res) =>{
           const findPayment = await Payments.findOne({ orderId: id});
 
           const paymentId =findPayment._id;
-         // console.log(paymentId)
+          console.log(paymentId)
           let paystatus ="Cancel";
           const updatePayments = await Payments.updateOne(
             { orderId: id },
@@ -254,7 +247,7 @@ const updateCancel =asyncHandler(async(req,res) =>{
           );
         const findtrans =await Transaction.findOne({accountsid:paymentId});
         const transids =findtrans._id;
-     //  console.log(findtrans._id);
+        console.log(findtrans._id);
           let transtatus ="Cancel";
           const updateTrans = await Transaction.updateOne(
             { _id: transids },

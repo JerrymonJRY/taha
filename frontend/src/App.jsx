@@ -83,6 +83,7 @@ import EditUser from './Components/userPages/editUser';
 import PaidOrders from './Components/Orders/viewPaidorders';
 import CancelOrders from './Components/Orders/viewCancelorders';
 import NotPaidorders from './Components/Orders/viewNotpaidorders';
+import Forgotpassword from './Components/userPages/forgotpassword';
 function App() {
 
   //const navigate = useNavigate();
@@ -100,6 +101,7 @@ function App() {
     <Routes>
    
                  <Route path='/' element={<Login />} />
+                 <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
 
                  <Route path='/dashboard' element={
                   <RequireToken>
