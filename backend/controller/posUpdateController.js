@@ -2,54 +2,101 @@ const asyncHandler = require('express-async-handler');
 const mongoose = require('mongoose');
 const Pos = require('../models/posModels');
 
-const updatePosorder = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+const updatePosorder =asyncHandler(async(req,res) =>{
 
-  try {
-    // Destructure the request body for clarity
-    const { grandTotal, cart, vatAmount, total } = req.body;
+  const { id } =req.params;
 
-    // Check if the existing entry with the given id exists
-    const existingEntry = await Pos.findById(id);
+  try
+  {
+      const  {grandTotal,cart,vatAmount,total}  = req.body;
 
-    // If the entry doesn't exist, return a 404 error
-    if (!existingEntry) {
-      return res.status(404).json({ error: 'POS order not found' });
-    }
+      // console.log(req.body);
 
-    // Check if any of the properties are modified
-    const isModified =
-      cart !== existingEntry.cart ||
-      grandTotal !== existingEntry.grandTotal ||
-      vatAmount !== existingEntry.vatAmount ||
-      total !== existingEntry.total;
+      // const existingEntry = await Pos.findById(id);
+      // const existingCart = existingEntry.cart;
+      
+      // existingCart.forEach(existingItem => {
+      //     const { foodmenuId: existingFoodmenuId, foodmenuname: existingFoodmenuname, salesprice: existingSalesprice, quantity: existingQuantity } = existingItem;
+      
+      //     cart.forEach(updatedItem => {
+      //         const { foodmenuId: updatedFoodmenuId, foodmenuname: updatedFoodmenuname, salesprice: updatedSalesprice, quantity: updatedQuantity } = updatedItem;
+      
+      //         if (existingFoodmenuId.toString() === updatedFoodmenuId.toString()) {
+      //             // Subtract the quantities if foodmenuId values match
+      //             const parsedUpdatedQuantity = parseInt(updatedQuantity);
+      //             const parsedExistingQuantity = parseInt(existingQuantity);
+      //             const difference = parsedUpdatedQuantity - parsedExistingQuantity;
+      //             console.log(`Difference for foodmenuId ${existingFoodmenuname}: ${difference}`);
+      //         }
+      //     });
+      // });
+      const existingEntry = await Pos.findById(id);
+      const existingCart = existingEntry.cart;
+      
+      const differences = [];
+      
+      cart.forEach(updatedItem => {
+          const { foodmenuId: updatedFoodmenuId, foodmenuname: updatedFoodmenuname, salesprice: updatedSalesprice, quantity: updatedQuantity } = updatedItem;
+      
+          const existingItem = existingCart.find(item => item.foodmenuId.toString() === updatedFoodmenuId.toString());
+      
+          if (existingItem) {
+              const { foodmenuId: existingFoodmenuId,foodmenuname:existingfoodname, quantity: existingQuantity,salesprice:existingsalesprice } = existingItem;
+      
+              // Subtract the quantities if foodmenuId values match
+              const parsedUpdatedQuantity = parseInt(updatedQuantity);
+              const parsedExistingQuantity = parseInt(existingQuantity);
+              const difference = parsedUpdatedQuantity - parsedExistingQuantity;
+              differences.push({ foodmenuname: existingfoodname, quantity:difference,salesprice:existingsalesprice });
+          } else {
+              // Handle new items from the cart
+              differences.push({ foodmenuname: updatedFoodmenuname,quantity:updatedQuantity,salesprice:updatedSalesprice, isNew: true });
+          }
+      });
 
-    // If any property is modified, update the POS order
-    if (isModified) {
-      const updatedPos = await Pos.findByIdAndUpdate(
-        id,
-        {
-          cart,
-          grandTotal,
-          vatAmount,
-          total,
-        },
-        { new: true, upsert: true }
-      );
 
-      // Log and return the updated POS order
-      //console.log('POS order updated:', updatedPos);
-     // return res.json({ modifiedData: updatedPos });
-    }
+      
+      
+     
 
-    // If nothing is modified, return the existing data
-    res.json({ existingData: existingEntry });
-  } catch (error) {
-    // Log the error and return a 500 status with an error message
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
+      //console.log(differences);
+      
+
+      
+
+ 
+      const isModified = (
+          req.body.cart !== existingEntry.cart ||
+          req.body.grandTotal !== existingEntry.grandTotal ||
+          req.body.vatAmount !== existingEntry.vatAmount ||
+          req.body.total !== existingEntry.total
+        );
+        if (isModified) {
+        const updatePos = await Pos.findByIdAndUpdate(id, {
+          cart: req.body.cart,
+          grandTotal: req.body.grandTotal,
+          vatAmount: req.body.vatAmount,
+          total: req.body.total,
+        
+        }, { new: true,upsert: true });
+
+       // console.log('Category updated:', updatePos);
+      // res.json({ modifiedData: updatePos });
+
+      res.json({ differences,updatePos });
+      }
+
+
+ 
   }
+  catch(error)
+  {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+  }
+     
 });
+
 
 
 const lastupdated =asyncHandler(async(req,res) =>{

@@ -151,6 +151,7 @@ const runningOrder =asyncHandler(async(req,res) =>{
           _id: "$_id",
           ordernumber: { $first: "$ordernumber" },
           options: { $first: "$options" },
+          date:{$first: "$date"},
           total: { $first: "$total" },
           grandTotal: { $first: "$grandTotal" },
           vatAmount: { $first: "$vatAmount" },

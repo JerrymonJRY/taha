@@ -6,6 +6,7 @@ import { IoFastFoodSharp } from "react-icons/io5";
 import 'react-toastify/dist/ReactToastify.css'; // Import the styles for react-toastify
 import apiConfig from '../../layouts/base_url';
 import Swal from 'sweetalert2';
+import { useReactToPrint } from 'react-to-print';
 const PosOrderEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -63,6 +64,23 @@ const PosOrderEdit = () => {
         // setTotalVat(data.vatAmount);
         // setTotalAmount(data.total);
         // setGrandTotal(data.grandTotal);
+       
+
+      if (data && data.vatAmount) {
+     console.log();
+       setTotalVat(data.vatAmount);
+      } else {
+      console.log("VAT amount not found in the data.");
+    }
+
+       console.log(response.data);
+        const foodmenuIds = orderData.map(order => (
+          order.cart.map(item => item.menuItemDetails._id)
+        )).flat();
+
+      
+        setMenu(foodmenuIds);
+       
       })
       .catch((error) => {
         console.error(error);
@@ -245,10 +263,10 @@ cart.forEach(icart => {
             cancelButtonText: 'No',
           }).then((result) => {
 
-            console.log(posData);
+            console.log(res.data.existingEntry)
 
-            // printOrderDetails(res.data);
-            // navigate('/pos');
+      printOrderDetails(res.data.differences,res.data.updatePos);
+         navigate('/pos');
           });
         })
         .catch(err => console.log(err));
@@ -257,88 +275,121 @@ cart.forEach(icart => {
      // console.log(posData);
      const imagePaths = "/assets/images/pos/taha.png";
 
+     const printOrderDetails = (differences,updatePos) => {
 
-     const printOrderDetails = (orderData) => {
-       const printWindow = window;
-       printWindow.document.write('<html><head><title>Order Details</title>');
-       // Add style for center alignment and table styling
-       printWindow.document.write(`
-         <style>
-           body { text-align: center; }
-           table {
-             width: 100%;
-             border-collapse: collapse;
-            
-           }
-           th, td {
-             border: 1px solid #ddd;
-             padding: 8px;
-             text-align: left;
-           }
-           th {
-             background-color: #f2f2f2;
-           }
-           .order-info {
-             display: flex;
-             justify-content: space-between;
-           }
-         </style>
-       `);
-       printWindow.document.write('</head><body>');
-       
-       // Include order details and image in the print window
-       
-       printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
+      const printWindow = window;
+    printWindow.document.write('<html><head><title>Order Details</title>');
+    // Add style for center alignment and table styling
+    printWindow.document.write(`
+      <style>
+        body { text-align: center; }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+         
+        }
+        th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+        }
+        th {
+          background-color: #f2f2f2;
+        }
+        td
+        {
+          font-size:13px;
+          text-transform: capitalize;
+        }
+        .order-info {
+          font-size:13px;
+          text-transform: capitalize;
+        }
+      </style>
+    `);
+    printWindow.document.write('</head><body>');
     
-       printWindow.document.write(`<p>Order ID: ${orderData.ordernumber}</p>`);
-       const orderDate = new Date(orderData.date);
-   const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
-   printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
-      
-       
-       // Print details of each item in the cart in a table
-       if (orderData.cart && orderData.cart.length > 0) {
-        
-         printWindow.document.write(`
-           <table>
-             <thead>
-               <tr>
-                 <th>Food Name</th>
-                 <th>Qty</th>
-                 <th>Price</th>
-               </tr>
-             </thead>
-             <tbody>
-         `);
-         orderData.cart.forEach((item) => {
-           printWindow.document.write(`
-             <tr>
-               <td>${item.foodmenuname}</td>
-               <td>${item.quantity}</td>
-               <td>${item.salesprice}</td>
-             </tr>
-           `);
-         });
-         printWindow.document.write('</tbody></table>');
-       }
-   
-     printWindow.document.write(`<p>VAT Amount: ${orderData.vatAmount}</p>`);
+    // Include order details and image in the print window
     
+    printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
    
+    if (updatePos) {
+      printWindow.document.write(`<p>Order ID: ${updatePos.ordernumber}</p>`);
+      const orderDate = new Date(updatePos.updatedAt);
+      const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
+      const formattedTime = `${orderDate.getHours().toString().padStart(2, '0')}:${orderDate.getMinutes().toString().padStart(2, '0')}:${orderDate.getSeconds().toString().padStart(2, '0')}`;
+      printWindow.document.write(`<p>Date and Time: ${formattedDate} ${formattedTime}</p>`);
+    }
    
     
-   
-     printWindow.document.write(`<p>Grand Total: ${orderData.grandTotal}</p>`);
-   
+if (differences && differences.length > 0) {
+  
+  printWindow.document.write(`
+    <table>
+      <thead>
+        <tr>
+          <th>Food Name</th>
+          <th>Qty</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+  `);
+  
+  let subtotal = 0;
+  let subTotals = 0;
+  let vatAmounts = 0;
+
+  differences.forEach(item => {
+    if (item.quantity !== 0) {
+
+      const totalPrice = item.quantity * item.salesprice;
+      subtotal += totalPrice;
+      vatAmounts =(subtotal * 5)/100;
+      subTotals = subtotal-vatAmounts;
+
+
      
-       // Include other relevant order information
-       
-       // Add the image with onload event
-       
-     
-       printWindow.document.write('</body></html>');
-     };
+    printWindow.document.write(`
+    <tr>
+    <td>${item.foodmenuname}</td>
+    <td>${item.quantity}</td>
+    <td>${totalPrice}</td>
+</tr>
+    `);
+
+    
+
+    
+
+    }
+  });
+  printWindow.document.write('</tbody></table>');
    
+    printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
+    printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
+    printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
+
+ 
+
+
+ 
+}
+
+
+
+printWindow.document.write('</body></html>');
+
+  };
+  
+  
+    const componentRef = useRef(null);
+  
+    // Use the hook to enable printing
+    const handlePrint = useReactToPrint({
+      content: () => componentRef.current,
+    });
+  
   
 
 

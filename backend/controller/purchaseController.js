@@ -216,4 +216,60 @@ const expiryDate =asyncHandler(async(req,res) =>{
 })
 
 
-module.exports ={getSupplier,getIngredient,ctratePurchase,allInvoice,editPurchase,expiryDate};
+const updatepurchase =asyncHandler(async(req,res) =>{
+  const { id } =req.params;
+
+  try{
+
+    const {cart,paidAmount,dueAmount,grandTotal,supplierId,invoiceDate,suppliername}  =req.body;
+
+    const existingEntry = await Purchase.findById(id);
+
+    const isModified = (
+      req.body.cart !== existingEntry.cart ||
+      req.body.paidAmount !== existingEntry.paidAmount ||
+      req.body.dueAmount !== existingEntry.dueAmount ||
+      req.body.grandTotal !== existingEntry.grandTotal ||
+      req.body.supplierId !== existingEntry.supplierId ||
+      req.body.suppliername !== existingEntry.suppliername ||
+      req.body.invoiceDate !== existingEntry.invoiceDate 
+     
+    );
+
+
+   
+
+
+
+
+    if (isModified) {
+    const updatePos = await Purchase.findByIdAndUpdate(id, {
+      cart: req.body.cart,
+      paidAmount: req.body.paidAmount,
+      dueAmount: req.body.dueAmount,
+      grandTotal: req.body.grandTotal,
+      supplierId: req.body.supplierId,
+      suppliername: req.body.suppliername,
+      invoiceDate: req.body.invoiceDate,
+    
+    }, { new: true,upsert: true });
+
+   // console.log('Category updated:', updatePos);
+  // res.json({ modifiedData: updatePos });
+
+  res.json(updatePos);
+  }
+
+
+
+
+  }
+catch(error)
+  {
+    console.error(error);
+  }
+
+})
+
+
+module.exports ={getSupplier,getIngredient,ctratePurchase,allInvoice,editPurchase,expiryDate,updatepurchase};

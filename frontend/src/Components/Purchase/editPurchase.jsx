@@ -3,11 +3,12 @@ import Header from '../layouts/Header';
 import Sidebar from '../layouts/Sidebar';
 import Footer from '../layouts/Footer';
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import apiConfig from '../layouts/base_url';
 import Select from 'react-select';
-
+import Swal from 'sweetalert2';
 const EditPurchase = () => {
+  const navigate = useNavigate();
   const [suppliers, setSupplier] = useState([]);
   const [ingredients, setIngredient] = useState([]);
   const [selectIngredient, setSelectIngredient] = useState(null);
@@ -23,6 +24,7 @@ const EditPurchase = () => {
         const response = await axios.get(`${apiConfig.baseURL}/api/purchase/edit/${id}`);
         const itemData = response.data;
 
+        
         if(itemData && itemData.invoiceDate)
         {
           setInvoiceDate(itemData.invoiceDate)
@@ -32,11 +34,7 @@ const EditPurchase = () => {
           setCart(itemData.cart);
 
           itemData.cart.forEach(item => {
-            // console.log("Food Item: " + item.ingredientname);
-            // console.log("Quantity: " + item.quantity);
-            // console.log("Sales Price: " + item.expirydate);
-            // console.log("Sales Price: " + item.total);
-            // console.log("--------------");
+          
           });
         } else {
           console.log("Cart data is not available or is in an unexpected format.");
@@ -47,13 +45,33 @@ const EditPurchase = () => {
           setPaidAmount(itemData.paidAmount);
         }
 
-        if (itemData && itemData.supplierId && Array.isArray(itemData.supplierId)) {
-          setSupplier(itemData.supplierId);
+        // if (itemData && itemData.supplierId && Array.isArray(itemData.supplierId)) {
+        //   setSupplier(itemData.supplierId);
 
-          const options = response.data.map(supplier => ({
+        //   const options = response.data.map(supplier => ({
+        //     value: supplier._id,
+        //     label: supplier.suppliername,
+        //   }));
+        // } else {
+        //   console.log("Supplier data is not available or is in an unexpected format.");
+        // }
+
+        const suppliersResponse = await axios.get(`${apiConfig.baseURL}/api/purchase/getSupplier`);
+        const suppliersData = suppliersResponse.data;
+        if (Array.isArray(suppliersData)) {
+          const supplierOptions = suppliersData.map(supplier => ({
             value: supplier._id,
             label: supplier.suppliername,
           }));
+          setSupplierOptions(supplierOptions);
+  
+          // Set selectedSupplier based on itemData.supplierId
+          if (itemData && itemData.supplierId) {
+            const selectedSupplier = supplierOptions.find(option => option.value === itemData.supplierId);
+            if (selectedSupplier) {
+              setSelectedSupplier(selectedSupplier);
+            }
+          }
         } else {
           console.log("Supplier data is not available or is in an unexpected format.");
         }
@@ -182,6 +200,61 @@ const EditPurchase = () => {
     console.log('Selected Supplier ID:', selectOption.value);
   };
 
+  const handleSubmit = (event) => {
+
+    event.preventDefault();
+
+    const postData = {
+      cart: cart.map((item) => ({
+        ingredientId: item.value,
+        ingredientname: item.label,
+        quantity: item.quantity,
+        expirydate:item.date,
+        purchaseprice:item.purchaseprice,
+        unit:item.unit,
+        total: calculateTotal(item.quantity, item.purchaseprice),
+      })),
+      paidAmount: paidAmount,
+      grandTotal: calculateGrandTotal(),
+      dueAmount:calculateDueAmount(),
+      supplierId: selectSupplier ? selectSupplier.value : null,
+      suppliername:selectSupplier ? selectSupplier.label : null,
+      invoiceDate: invoiceDate, 
+    };
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+
+    axios
+      .put(`${apiConfig.baseURL}/api/purchase/update/${id}`, postData, config)
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          icon: 'success',
+          title: 'Purchase Updated!',
+          text: 'Your Purchase has been Updated successfully.',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        }).then(() => {
+          navigate('/viewPurchase');
+        });
+      })
+      .catch((err) => console.log(err));
+
+  }
+
+  const getIngredientName = (ingredientId) => {
+    const ingredient = ingredients.find(ingredient => ingredient._id === ingredientId);
+    return ingredient ? ingredient.name : 'N/A'; // Assuming 'name' is the property for the ingredient name
+  };
   return (
     <div className="container-scroller">
       <Header />
@@ -260,7 +333,12 @@ const EditPurchase = () => {
                             {cart.map((selectedIngredient, index) => (
                               <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{selectedIngredient.ingredientname}</td>
+                                {selectedIngredient.ingredientId ? (
+  <td style={{ display: 'table-cell' }}>{getIngredientName(selectedIngredient.ingredientId)}</td>
+) : (
+  <td>{selectedIngredient.label}</td>
+)}
+
                                 <td>{selectedIngredient.purchaseprice}</td>
                                 <td>
                                   <input
@@ -311,7 +389,7 @@ const EditPurchase = () => {
                           </tfoot>
                         </table>
                       </div>
-                      <button type="submit" className="btn btn-gradient-primary me-2">Submit</button>
+                      <button type="submit" onClick={handleSubmit} className="btn btn-gradient-primary me-2">Submit</button>
                     </form>
                   </div>
                 </div>
@@ -326,3 +404,4 @@ const EditPurchase = () => {
 }
 
 export default EditPurchase;
+

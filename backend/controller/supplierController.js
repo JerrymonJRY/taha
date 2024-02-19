@@ -32,6 +32,54 @@ const viewSupplier =asyncHandler(async(req,res) =>
       } catch (error) {
         throw new Error(error);
       }
-})
+});
 
-module.exports ={createSupplier,viewSupplier};
+
+const updateSupplier =asyncHandler(async(req,res) =>{
+
+    const { id } =req.params;
+    try
+    {
+        const updateSupplier =await Supplier.findByIdAndUpdate(id,{
+            suppliername:req?.body?.suppliername,
+            suppliermobile:req?.body?.suppliermobile,
+            taxnumber:req?.body?.taxnumber,
+            supplieremail:req?.body?.supplieremail,
+            licensenumber:req?.body?.licensenumber,
+            supplieraddress:req?.body?.supplieraddress
+
+            
+    
+          },
+          {
+              new:true,
+          }
+          );
+    
+          res.json(updateSupplier);
+    }catch(error)
+    {
+        throw new Error(error);
+    }
+
+});
+
+
+const getSupplier =asyncHandler(async(req,res) =>{
+
+    const { id } =req.params;
+   
+   //console.log(id);
+   try
+   {
+        const getsupplier =await Supplier.findById(id);
+        res.json(getsupplier);
+  
+   }catch(error)
+   {
+    throw new Error(error);
+   }
+  
+  });
+
+module.exports ={createSupplier,viewSupplier,updateSupplier,getSupplier};

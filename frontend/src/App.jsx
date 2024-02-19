@@ -84,6 +84,7 @@ import PaidOrders from './Components/Orders/viewPaidorders';
 import CancelOrders from './Components/Orders/viewCancelorders';
 import NotPaidorders from './Components/Orders/viewNotpaidorders';
 import Forgotpassword from './Components/userPages/forgotpassword';
+import EditSupplier from './Components/Supplier/editSupplier';
 function App() {
 
   //const navigate = useNavigate();
@@ -190,7 +191,7 @@ function App() {
         
               <Route path='/viewSupplier' element={<RequireToken><ViewSupplier /></RequireToken>}></Route>
               <Route path='/addSupplier' element={<RequireToken><AddSupplier /></RequireToken>}></Route>
-        
+              <Route path='/editSupplier/:id' element={<RequireToken><EditSupplier /></RequireToken>}></Route>
              
               <Route path='/viewPurchase' element={<RequireToken><ViewPurchase /></RequireToken>}></Route>
               <Route path='/addPurchase' element={<RequireToken><AddPurchase /></RequireToken>}></Route>

@@ -31,22 +31,35 @@ const PosNewKotmodal =({kotdata,showkotModal,setShowKotModal}) =>
               </button>
             </div>
             <div className="modal-body">
-              {/* Display the data here */}
+          
               
               { kotdata ? (
-kotdata.map((order) => (
+kotdata.map((order) => {
+
+  const subtotal = order.cart.reduce((total, cartItem) => total + (cartItem.quantity * cartItem.salesprice), 0);
+  const vatPercentValue = 5;
+  const vatAmount = (subtotal * vatPercentValue) / 100;
+  const subTotals = subtotal - vatAmount;
+  const grandTotal =subTotals + vatAmount;
+  const orderDate = new Date(order.date);
+  const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
+  const formattedTime = `${orderDate.getHours().toString().padStart(2, '0')}:${orderDate.getMinutes().toString().padStart(2, '0')}:${orderDate.getSeconds().toString().padStart(2, '0')}`;
+
+            return (
                <div key={order.id}>
                <h5>Order Number: {order.ordernumber}</h5>
                <h6>Options: {order.options}</h6>
                <h6>Customer Name:{order.customerDetails ? order.customerDetails.customername : 'N/A'}</h6>
       <h6>Table:{order.tableDetails ? order.tableDetails.tablename : 'N/A'}</h6>
       <h6>Waiter {order.waiterDetails ? order.waiterDetails.waitername : 'N/A'}</h6>
+      <h6>Date & Time:{formattedDate} {formattedTime}</h6>
                 <table className="table   table-bordered">
                 <thead>
                 <tr>
                     <th>Si No</th>
                     <th>Food Name</th>
                     <th>Quanity</th>
+                    <th>Unit Price</th>
                     <th>Price</th>
                     </tr>
                 </thead>
@@ -58,6 +71,7 @@ kotdata.map((order) => (
                   <td>{cartItem.menuItemDetails.foodmenuname}</td>
                   <td>{cartItem.quantity}</td>
                   <td>{cartItem.salesprice}</td>
+                  <td>{cartItem.quantity * cartItem.salesprice}</td>
                 
                   {/* Render other cart item details here */}
                 </tr>
@@ -65,17 +79,17 @@ kotdata.map((order) => (
                 
                 </tbody>
                 </table>
-                <h6 className="text-right">Total :{order.total}</h6>
-                <h6 className="text-right">Vat Amount :{order.vatAmount}</h6>
-                <h6 className="text-right">Grand Total :{order.grandTotal}</h6>
+                <h6 className="text-right">Subtotal: {subTotals}</h6>
+            <h6 className="text-right">VAT Amount ({vatPercentValue}%): {vatAmount}</h6>
+            <h6 className="text-right">Grand Total: {grandTotal}</h6>
 
            
 
           
    
              </div>
-           
-              ))
+            )
+                  })
               ):(
                 <p>No data</p>
               )
@@ -101,3 +115,4 @@ kotdata.map((order) => (
 }
 
 export default PosNewKotmodal;
+
