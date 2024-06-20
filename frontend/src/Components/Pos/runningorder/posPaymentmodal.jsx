@@ -145,7 +145,7 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
         table {
           width: 100%;
           border-collapse: collapse;
-         
+
         }
         th, td {
           border: 1px solid #ddd;
@@ -167,17 +167,18 @@ const RunningPaymentModal = ({ data, showModal, setShowModal }) => {
       </style>
     `);
     printWindow.document.write('</head><body>');
-    
+
     // Include order details and image in the print window
-    
+
     printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
+    printWindow.document.write(`<p>TRN 100317104600003</p>`);
     printWindow.document.write(`<p>Bill Number: ${orderData.billnumber}</p>`);
     printWindow.document.write(`<p>Order ID: ${orderData.ordernumber}</p>`);
     const orderDate = new Date(orderData.date);
 const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
 printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
-   
-    
+
+
 if (orderData.cart && orderData.cart.length > 0) {
   printWindow.document.write(`
     <table>
@@ -190,7 +191,7 @@ if (orderData.cart && orderData.cart.length > 0) {
       </thead>
       <tbody>
   `);
-  
+
   let subtotal = 0;
 
   orderData.cart.forEach((item) => {
@@ -213,7 +214,7 @@ if (orderData.cart && orderData.cart.length > 0) {
   const subTotals = subtotal - vatAmounts;
 
   printWindow.document.write('</tbody></table>');
-  
+
   printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
   printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
   printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
@@ -231,7 +232,7 @@ printWindow.document.write('</body></html>');
 
 
 
-  
+
 
   const closeModal = () => {
     setShowModal(false);
@@ -259,7 +260,7 @@ printWindow.document.write('</body></html>');
       const orderDate = new Date(order.date);
       const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
       const formattedTime = `${orderDate.getHours().toString().padStart(2, '0')}:${orderDate.getMinutes().toString().padStart(2, '0')}:${orderDate.getSeconds().toString().padStart(2, '0')}`;
-      
+
       return (
         <div key={order.id}>
           <h5>Order Number: {order.ordernumber}</h5>
@@ -293,14 +294,14 @@ printWindow.document.write('</body></html>');
               ))}
             </tbody>
           </table>
-          
+
           {/* Calculations */}
           <div>
             <h6>Subtotal: {subTotals}</h6>
             <h6>VAT Amount ({vatPercentValue}%): {vatAmount}</h6>
             <h6>Grand Total: {grandTotal}</h6>
           </div>
-          
+
           {/* Payment section */}
           <div className="form-group row">
             <label for="exampleInputUsername2" className="col-sm-3 col-form-label">Select Payment</label>
@@ -313,7 +314,7 @@ printWindow.document.write('</body></html>');
               </select>
             </div>
           </div>
-          
+
           {/* Modal footer */}
           <div className="modal-footer">
             <button type="button" className="btn btn-outline-primary" onClick={(e) => handleMakePayment(order._id, order)}>Pay Now</button>

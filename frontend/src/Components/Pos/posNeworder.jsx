@@ -35,9 +35,9 @@ import { useReactToPrint } from 'react-to-print';
 import PrintComponent from "./print/posPrint";
 import PosCancelOrder from "./neworder/posCancelOrders";
 const PosNewOrder = () => {
- 
 
-  
+
+
 //  const navigate = useNavigate();
   const [tabEnabled, setTabEnabled] = useState({
     dineIn: false,
@@ -48,20 +48,20 @@ const PosNewOrder = () => {
   const [addedby, setuserid] = useState("");
   const [shiftstoken, setShiftstoken] = useState('');
   const [shiftAccess, setShiftAccess] = useState('');
- 
+
  // setOpentoken(dit);
- // const dit = shiftAccess.shiftacess; 
+ // const dit = shiftAccess.shiftacess;
 
   const { id } = useParams();
   useEffect(() => {
     const storeid = localStorage.getItem("_id");
     const storetoken = localStorage.getItem('shifttoken');
     const storeaccess = localStorage.getItem('shiftacess');
-  
+
     setuserid(storeid);
     setShiftstoken(storetoken);
-    
-   
+
+
 
 
   }, []);
@@ -96,7 +96,7 @@ const PosNewOrder = () => {
 
     fetchData();
   }, []);
-  
+
 //console.log();
 
 
@@ -558,7 +558,7 @@ const PosNewOrder = () => {
             setLoading(false);
           });
 
-      
+
         }
 
     }, 1000);
@@ -579,7 +579,7 @@ const PosNewOrder = () => {
         table {
           width: 100%;
           border-collapse: collapse;
-         
+
         }
         th, td {
           border: 1px solid #ddd;
@@ -601,16 +601,16 @@ const PosNewOrder = () => {
       </style>
     `);
     printWindow.document.write('</head><body>');
-    
+
     // Include order details and image in the print window
-    
+
     printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
     printWindow.document.write(`<p>Order ID: ${orderData.ordernumber}</p>`);
     const orderDate = new Date(orderData.date);
 const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
 printWindow.document.write(`<p>Date: ${formattedDate}</p>`);
-   
-    
+
+
 if (orderData.cart && orderData.cart.length > 0) {
   printWindow.document.write(`
     <table>
@@ -623,7 +623,7 @@ if (orderData.cart && orderData.cart.length > 0) {
       </thead>
       <tbody>
   `);
-  
+
   let subtotal = 0;
 
   orderData.cart.forEach((item) => {
@@ -649,7 +649,7 @@ if (orderData.cart && orderData.cart.length > 0) {
 
   printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
   printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
-  
+
   printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
 }
 
@@ -662,20 +662,20 @@ printWindow.document.write('</body></html>');
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
-  
+
 
   // const componentRef = React.useRef();
 
   const handleClosePrint = () => {
       setShowPrintModal(false);
-      
+
     }
 
     const handlePrints = useReactToPrint({
       content: () => componentRef.current,
     });
 
-  
+
 
   const [showPrintModal, setShowPrintModal] = useState(false);
   const [orderData,setOrderData ] = useState(null);
@@ -686,8 +686,8 @@ printWindow.document.write('</body></html>');
     if (orderData) {
       setShowPrintModal(true);
     }
-  }, [orderData]); 
- 
+  }, [orderData]);
+
 
 
 
@@ -780,7 +780,7 @@ printWindow.document.write('</body></html>');
   const handleQuickPay = (event) => {
     event.preventDefault();
     setLoading(true);
-  
+
     // Introduce a delay before executing the main logic
     setTimeout(() => {
       if (cart.length < 1) {
@@ -802,7 +802,7 @@ printWindow.document.write('</body></html>');
           text: 'Quick pay is not allowed for dine-in orders.',
         });
       } else {
-        
+
         setPlaceOrder({
           option: options,
           waiter: selectWaiter,
@@ -816,9 +816,9 @@ printWindow.document.write('</body></html>');
           numberofperson: numberofperson,
         });
        // console.log(options);
-  
+
         var posData = new FormData();
-  
+
         if (selectCustomer && selectCustomer._id) {
           posData.append("customers", selectCustomer._id);
         }
@@ -881,7 +881,7 @@ printWindow.document.write('</body></html>');
       }
     }, 1000); // You can adjust the delay time (in milliseconds) as needed
   };
-  
+
 
   const printComponentRef = useRef();
   const handlequickPrint = useReactToPrint({
@@ -891,7 +891,7 @@ printWindow.document.write('</body></html>');
   const printQuickDetails = (newEntry, updatedDocuments) => {
     const printWindow = window;
     printWindow.document.write('<html><head><title>Order Details</title>');
-    
+
     // Add style for center alignment and table styling
     printWindow.document.write(`
       <style>
@@ -918,19 +918,20 @@ printWindow.document.write('</body></html>');
         }
       </style>
     `);
-  
+
     printWindow.document.write('</head><body>');
-    
+
     // Include order details and image in the print window
     printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
+    printWindow.document.write(`<p>TRN 100317104600003</p>`);
     printWindow.document.write(`<p>Bill Number: ${updatedDocuments.billnumber}</p>`);
     printWindow.document.write(`<p>Order ID: ${newEntry.ordernumber}</p>`);
-    
+
     const orderDate = new Date(newEntry.date);
     const formattedDate = `${orderDate.getDate().toString().padStart(2, '0')}-${(orderDate.getMonth() + 1).toString().padStart(2, '0')}-${orderDate.getFullYear()}`;
     const formattedTime = `${orderDate.getHours().toString().padStart(2, '0')}:${orderDate.getMinutes().toString().padStart(2, '0')}:${orderDate.getSeconds().toString().padStart(2, '0')}`;
     printWindow.document.write(`<p>Date and Time: ${formattedDate} ${formattedTime}</p>`);
-    
+
     // Print details of each item in the cart in a table
     if (newEntry.cart && newEntry.cart.length > 0) {
       printWindow.document.write(`
@@ -944,13 +945,13 @@ printWindow.document.write('</body></html>');
           </thead>
           <tbody>
       `);
-      
+
       let subtotal = 0;
-  
+
       newEntry.cart.forEach((item) => {
         const totalPrice = item.quantity * item.salesprice;
         subtotal += totalPrice;
-  
+
         printWindow.document.write(`
           <tr>
             <td>${item.foodmenuname}</td>
@@ -959,24 +960,24 @@ printWindow.document.write('</body></html>');
           </tr>
         `);
       });
-  
+
       // Calculate VAT amount and overall total
       const vatPercentValue = 5;
       const vatAmounts = (subtotal * vatPercentValue) / 100;
       const overallTotal = subtotal + vatAmount;
       const subTotals = subtotal - vatAmounts;
-  
+
       printWindow.document.write('</tbody></table>');
-      
+
       printWindow.document.write(`<p>Subtotal: ${subTotals}</p>`);
       printWindow.document.write(`<p>VAT Amount: ${vatAmounts}</p>`);
-     
+
       printWindow.document.write(`<p>Overall Total: ${subtotal}</p>`);
     }
-  
+
     printWindow.document.write('</body></html>');
   };
-  
+
   const handleTabClick = () => {
     setModalOpen(true);
   };
@@ -1306,7 +1307,7 @@ printWindow.document.write('</body></html>');
               enableDinein && ( <li className="nav-item">
                 <a className="nav-link pos "  onClick={() => {
                 // handleDinein();
-                setSelectTable(''); 
+                setSelectTable('');
               }} data-toggle="tab" href="#table" role="tab" aria-controls="duck2" aria-selected="true"><SiTablecheck className="mr-2" />Table</a>
               </li>
            ) } */}
@@ -1394,7 +1395,7 @@ printWindow.document.write('</body></html>');
           </ul>
         </div>
         <div className="tab-content mt-3" style={{ maxHeight: '800px', overflowY: 'scroll' }}>
-        
+
           <div
             className="tab-pane active"
             id="waiter"
@@ -1432,9 +1433,9 @@ printWindow.document.write('</body></html>');
               ))}
             </div>
 
-         
-        
-            
+
+
+
             {/* } */}
           </div>
           {/* <div className="tab-pane " id="table" role="tabpanel" aria-labelledby="duck-tab">
@@ -1752,7 +1753,7 @@ printWindow.document.write('</body></html>');
         </ul>
       </div>
     </div>
-    
+
               </div>
 
               <div className="tab-content p-3" id="myTabContents">
@@ -1845,28 +1846,28 @@ printWindow.document.write('</body></html>');
         setModalInvoiceReport={setModalInvoiceReport}
       />
 
-    <PosClosingBalance 
-      isModalClosingBalance={isModalClosingBalance}  
+    <PosClosingBalance
+      isModalClosingBalance={isModalClosingBalance}
       setModalClosingBalance={setModalClosingBalance}
     />
 
-    <PosCancelOrder 
+    <PosCancelOrder
     isModalCanelOrders={isModalCanelOrders}
     setModalCancelOrders={setModalCancelOrders}
     />
 
 
-    
+
 
 
 
 {/* <PrintComponent ref={componentRef} response={response} /> */}
 
-    {/* <PosOrderPrint 
-     orderData={orderData} 
-      showPrintModal={showPrintModal} 
-      setShowPrintModal={setShowPrintModal} 
-     
+    {/* <PosOrderPrint
+     orderData={orderData}
+      showPrintModal={showPrintModal}
+      setShowPrintModal={setShowPrintModal}
+
     /> */}
             <div>
         <div className={`modal ${showPrintModal ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: showPrintModal ? 'block' : 'none' }}>
@@ -1880,8 +1881,8 @@ printWindow.document.write('</body></html>');
               </div>
               <div className="modal-body" ref={componentRef}>
 
-  
-  
+
+
               {
   Array.isArray(orderData) &&
   orderData.map((order) => (
@@ -1897,15 +1898,15 @@ printWindow.document.write('</body></html>');
     </React.Fragment>
   ))
 }
-  
-  
-  
+
+
+
               </div>
               <div className="modal-footer">
               <button onClick={handlePrints}>Print</button>
-          
+
               </div>
-  
+
             </div>
           </div>
         </div>
