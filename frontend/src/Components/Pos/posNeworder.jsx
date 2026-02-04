@@ -923,6 +923,7 @@ printWindow.document.write('</body></html>');
 
     // Include order details and image in the print window
     printWindow.document.write(`<img src="${imagePaths}" alt="Logo" style="max-width: 100%;" onload="window.print(); location.reload();">`);
+        printWindow.document.write(`<h4>TAX INVOICE</h4>`);
     printWindow.document.write(`<p>TRN 100317104600003</p>`);
     printWindow.document.write(`<p>Bill Number: ${updatedDocuments.billnumber}</p>`);
     printWindow.document.write(`<p>Order ID: ${newEntry.ordernumber}</p>`);
